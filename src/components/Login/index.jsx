@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import { Icon } from '@iconify/react';
 import { API_BASE_URL } from '../../config/serverApiConfig';
+import OTPverification from "./otpVerification";
 
 const Login = () => {
   const [data, setData] = useState({ user: "", password: "" });
@@ -111,6 +112,14 @@ const Login = () => {
     });
   });
 
+  document.addEventListener("DOMContentLoaded", function() {
+    var signinBtn = document.getElementById("signin");
+    signinBtn.addEventListener("click", function() {
+        document.querySelector(".nav-align-top").style.display = "none";
+        document.querySelector(".otpverification").style.display = "block";
+    });
+});
+
   return (
     <>
       <section className="login-sec p-4">
@@ -190,20 +199,28 @@ const Login = () => {
                               <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
                               <span>Remember Login ID</span>
                             </div>
-                            <div>
+
+                            {/* For Signing the page */}
+                            {/* <div>
                               {error && <div className={styles.error_msg}>{error}</div>}
                               <button type="submit" className="btn btn-primary">
                                 Sign In
                               </button>
+                            </div> */}
+
+                            <div>
+                              <a href="#" className="btn btn-primary py-2" id="signin">
+                                Sign In
+                              </a>
                             </div>
 
                             <div className="subscription-div pt-3">
                               <span className="black-color">Subscribe to our newsletter & stay updated</span>
                               <div className="span position-relative">
-                              <input type="email" name="" id="" placeholder="Enter your email address" className="form-control mt-2"/>
-                              <button type="button" value="" className="subscription-submit" >
-                                <img src="/imgs/send-arrow.svg" alt="" srcset="" />
-                              </button>
+                                <input type="email" name="" id="" placeholder="Enter your email address" className="form-control mt-2" />
+                                <button type="button" value="" className="subscription-submit" >
+                                  <img src="/imgs/send-arrow.svg" alt="" srcset="" />
+                                </button>
                               </div>
                             </div>
                           </form>
@@ -211,18 +228,13 @@ const Login = () => {
                       </div>
                     </div>
                     <div className="tab-pane fade" id="navs-top-profile" role="tabpanel">
-                      <p>
-                        Donut dragée jelly pie halvah. Danish gingerbread bonbon cookie wafer candy oat cake ice cream. Gummies
-                        halvah
-                        tootsie roll muffin biscuit icing dessert gingerbread. Pastry ice cream cheesecake fruitcake.
-                      </p>
-                      <p className="mb-0">
-                        Jelly-o jelly beans icing pastry cake cake lemon drops. Muffin muffin pie tiramisu halvah cotton candy
-                        liquorice caramels.
-                      </p>
+
+                     Create New Account
                     </div>
                   </div>
                 </div>
+
+                < OTPverification/>
               </div>
             </div>
           </div>

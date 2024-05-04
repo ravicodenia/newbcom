@@ -20,6 +20,7 @@ import Userassessments from "./components/Userside/Assessments";
 import Companydetails from "./components/Partners/companydetails";
 
 import EditPage from "./components/Userside/UserD/Edit";
+import GlobalFooter from "./components/footer/globalFooter";
 
 
 
@@ -60,6 +61,7 @@ const App = () => {
 			<Header />
 			<Routing />
 			<Footer />
+			<GlobalFooter />
 
 		</>
 	);

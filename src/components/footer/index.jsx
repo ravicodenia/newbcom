@@ -1,6 +1,8 @@
-import { useState } from "react";
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faTwitter, faInstagram, faLinkedin, faTimes } from '@fortawesome/free-brands-svg-icons';
 
-const Login = () => {
+const Footer = () => {
   
 
   return (
@@ -19,23 +21,22 @@ const Login = () => {
         <div className="col-12 mt-3"> 
 
           <div> <small> Call 24/7 for any help</small></div>
-          <div className="text-primary"> <h5>+1 123 456 7890</h5></div>
+          <div className="text-primary1"> <h5>+1 123 456 7890</h5></div>
         </div>
 
         <div className="col-12 mt-2"> 
           <div> <small>Mail to our support team</small></div>
-          <div className="text-primary"> <h5>support@bcommerce.com</h5></div>
+          <div className="text-primary1"> <h5>support@bcommerce.com</h5></div>
         </div>
 
         <div className="col-12 mt-3 mb-3">
           <div> <small>Follow us on</small></div>
           <div className="social_media"> 
-            <a href="#"><i className="fa-brands fa-facebook"></i></a>
-            <a href="#"><i className="fa-brands fa-x-twitter"></i></a>
-            <a href="#"><i className="fa-brands fa-instagram"></i></a>
-            <a href="#"><i className="fa-brands fa-linkedin"></i></a>
-
-          </div>
+      <a href="#"><FontAwesomeIcon icon={faFacebook} /></a>
+      <a href="#"><FontAwesomeIcon icon={faTwitter} /></a>
+      <a href="#"><FontAwesomeIcon icon={faInstagram} /></a>
+      <a href="#"><FontAwesomeIcon icon={faLinkedin} /></a>
+    </div>
         
         </div>
 
@@ -114,4 +115,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Footer;
