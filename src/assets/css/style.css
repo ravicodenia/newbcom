@@ -499,6 +499,178 @@ button.subscription-submit img {
     width: 111px;
 }
 
+.headerMini {
+    background-color: #173540;
+    padding: 7px 0;
+}
+
+.headerMini .switchLanguage .language-menu .select-wrapper .select, .switchTheme.ms-2 label {
+    background-color: #173540;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    padding-right: 20px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    color: #fff;
+    padding: 5px 21px 5px 10px;
+    margin: 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    border: solid 1px #173540;
+    border-radius: 0;
+    letter-spacing: 1px;
+}
+
+.select-wrapper svg {
+    position: absolute;
+    right: 6px;
+    top: 10px;
+    fill: #fff!important;
+    color: #fff;
+    font-size: 10px;
+}
+
+.form-switch {
+    padding-left: 2.5em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-switch {
+    display: flex!important;
+    align-items: center;
+    gap: 10px;
+}
+
+.headerMini .topLinks ul {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+    display: flex;
+}
+
+.headerMain .navbar_lg {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    background: #e7eaec;
+}
+
+.headerMini .topLinks ul li {
+    list-style: none;
+    display: inline;
+    margin: 0 1rem;
+    display: inline;
+}
+
+.headerMini .topLinks ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+}
+
+.headerMini .topLinks ul li .notification {
+    position: absolute;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    border: solid 2px #fff;
+    border-radius: 50%;
+}
+
+.headerMini .topLinks ul li .notification .nc {
+    display: inline-block;
+    padding: 0 6px;
+    font-size: 11px;
+    border-radius: 40%;
+    background-color: red;
+    position: absolute;
+    left: 70%;
+    top: 28%;
+    transform: translate(-10%, -60%);
+}
+
+.headerMain .navbar_lg .navbar_toogle {
+    display: flex;
+    justify-content: end;
+    font-size: 1.5rem;
+    color: #000;
+    text-decoration: none;
+    margin-right: 0.5rem;
+}
+
+.headerMain .navbar_lg .navbar_collapse {
+    display: flex;
+}
+
+.headerMain .navbar_lg .navbar_collapse .nav_links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+.headerMain .navbar_lg .navbar_collapse .nav_links .nav_item {
+    list-style-type: none;
+    display: inline-block;
+    padding: 1rem 0;
+}
+
+.headerMain .navbar_lg .navbar_collapse .nav_links .nav_item a {
+    display: inline-block;
+    padding: 1rem;
+    color: #000;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.headerMain .navbar_lg .navbar_collapse .nav_links .nav_item .loginbtn {
+    border: none;
+    background-color: #173540;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem 0 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.headerMain .navbar_lg .navbar_collapse .nav_links .nav_item .loginbtn .userpic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+span.notification svg {
+    font-size: 15px;
+    padding-right: 4px;
+    padding-top: 4px;
+}
+
+section.login-sec.p-4 .nav {
+    flex-wrap: nowrap!important;
+}
+
+@media(max-width:990px){
+    li.hide_mobile {
+        display: none!important;
+    }
+}
 /* Tablet */
 @media (min-width: 426px) {
     .admin-login-page {
