@@ -117,13 +117,13 @@ const Login = () => {
         <div className="container">
           <div className="row sign-in">
             <div className="col-md-6 p-0">
-              <img src="http://bcom.b2b.pierofcloudtech.com/images/login-img.png" alt="imgs" srcset="" className="h-100" />
+              <img src="/imgs/login-img.png" alt="imgs" srcset="" className="h-100" />
             </div>
 
             <div className="col-md-6">
               <div className="padding-x">
                 <div className="heading-img py-2 d-flex justify-content-center">
-                  <img src="http://bcom.b2b.pierofcloudtech.com/images/logo.png" alt="" srcset="" />
+                  <img src="/imgs/logo.png" alt="" srcset="" />
                 </div>
                 <hr />
 
@@ -202,7 +202,7 @@ const Login = () => {
                               <div className="span position-relative">
                               <input type="email" name="" id="" placeholder="Enter your email address" className="form-control mt-2"/>
                               <button type="button" value="" className="subscription-submit" >
-                                <img src="http://bcom.b2b.pierofcloudtech.com/assets/img/send-arrow.svg" alt="" srcset="" />
+                                <img src="/imgs/send-arrow.svg" alt="" srcset="" />
                               </button>
                               </div>
                             </div>
