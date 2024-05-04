@@ -1,0 +1,901 @@
+.editorClassName.rdw-editor-main::-webkit-scrollbar {
+    display: none;
+}
+
+.rdw-emoji-wrapper {
+    display: none !important;
+}
+/* Add this to your CSS (styles.module.css or a separate CSS file) */
+.back-to-top {
+  position: fixed;
+  bottom: 20px; /* Adjust the position as needed */
+  right: 20px; /* Adjust the position as needed */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999;
+}
+
+.back-to-top.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+div#rdw-wrapper-6335::-webkit-scrollbar {
+    display: none;
+}
+.card-body {
+    padding-top: 5px;
+    padding-bottom: 3px;
+}
+
+.main-content {
+    position: relative;
+    max-width: 75%;
+    margin: auto;
+}
+
+.main-card {
+    min-width: 30%;
+    left: 50%;
+    position: absolute;
+/*    top: 30%;*/
+/*    -webkit-transform: translate(-50%,-50%);*/
+/*    transform: translate(-50%,-50%);*/
+}
+
+button.btn.btn-primary.text-uppercase {
+    width: 100%;
+}
+
+button.btn.btn-outline-secondary.text-uppercase {
+    width: 100%;
+}
+
+.main-content {
+    position: relative;
+    max-width: 75%;
+    margin: auto;
+}
+/* Basic CSS for the table */
+table {
+  width: 96%;
+  border-collapse: collapse;
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+tr {
+  background-color: #f2f2f2; /* Background color for even rows */
+}
+
+tr:nth-child(odd) {
+  background-color: #ffffff; /* Background color for odd rows */
+}
+
+/* CSS for table data cells */
+td {
+  padding: 8px; /* Add padding to cell content */
+  border: 1px solid #ccc; /* Add a border to cells */
+}
+td button {
+  margin-right: 10px; /* Add right margin to create spacing between buttons */
+  border-radius: 5px;
+}
+/* Buttons */
+button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  button {
+    padding: 3px 6px;
+  }
+  #banding{
+    margin-left: -53% !important;
+ }   
+
+}
+
+
+
+.partner-add-page {
+    width: 60%;
+}
+
+.partner-page .list-group-item {
+    word-break: break-word;
+}
+
+.main-card {
+    padding-bottom: -30px!important;
+}
+
+@media(max-width:767px){
+
+.admin-login-page {
+    width: 60%;
+}
+
+.partners-page {
+    width: 60%!important;
+}
+}
+
+@media(max-width:481px){
+
+ #banding{
+    margin-left: -47% !important;
+ }   
+
+.admin-login-page {
+    width: 75%;
+}
+
+.partners-page {
+    width: 85%!important;
+}
+
+.partner-add-page {
+    width: 100% !important;
+}
+
+#con img{
+    width: 260px !important;
+}
+}
+
+.partner-add-page {
+    width: 60%;
+}
+
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+    opacity: 1;
+    z-index: -10;
+}
+
+.navbar.navbar-light.bg-primary.p-2 {
+    background-color:#0f6efb !important;
+}
+
+li.list-group-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.main-card {
+    position: absolute;
+/*    top: 28%;*/
+    left: 50%;
+/*    transform: translate(-50%, -50%);*/
+}
+
+
+.main-content {
+    position: relative;    
+}
+
+.offering-list {
+    padding-left: 10px;
+}
+
+.offering {
+    background: url('https://app.starbehaviors.com/StarBehaviorsLogoStar.jpg') no-repeat left top;
+    padding: 0px 10px 5px 25px;
+    margin: 0;
+    list-style: none;
+}
+
+.call-to-action {
+    color: rgb(250, 0, 0);
+}
+
+.call-to-action-sub-text {
+    color: rgb(0, 112, 192);
+}
+
+.footer-image {
+    position: static;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center !important;
+    opacity: 0.5;
+    z-index: -10;
+}
+
+
+
+/* _content/StarBehaviors.Web/Pages/AdminLogin.razor.rz.scp.css */
+/* Remove default show password icon in Edge and IE */
+input::-ms-reveal {
+    display: none;
+}
+
+.bod {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.card-header {
+    background-color: rgba(0,0,0,.03)!important;
+}
+
+.btn-primary {
+   /* background-color: #FFE01C!important;
+    border-color: #FFE01C!important;
+    color: #000000 !important;*/
+     color: #fff !important;
+    background-color: #1b6ec2 !important;
+    border-color: #1861ac !important;
+}
+
+.navbar-light {
+    background-color:#0f6efb !important;
+}
+
+.oi-eye:before {
+    content: '\e065';
+}
+
+.admin-login-page {
+    position: relative;
+    width: 100%;
+}
+
+img{
+    width: 100%;
+}
+
+li.nav-item .nav-link.active, li.nav-item .nav-link {
+    background: #f3ab3b;
+    border: 0;
+    border-radius: 0;
+    min-width: 176px;
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 7px;
+}
+
+li.nav-item .nav-link  {
+    background: #f6f6f6;
+    color: #000;
+}
+
+.heading-img img {
+    width: 220px;
+    margin: 10px 0;
+}
+
+.padding-x {
+    padding: 20px 70px;
+}
+
+.admin-login-page input {
+    height: 44px!important;
+    border-radius: 0!important;
+    padding: 5px!important;
+}
+
+.admin-login-page .form-floating>label {
+    padding: 0!important;
+    top: 54%!important;
+    left: 3%!important;
+    font-size: 14px;
+}
+
+button.btn.btn-outline-secondary {
+    height: 45px;
+    align-self: end;
+    display: none;
+}
+
+.label-top {
+    margin-bottom: 10px;
+}
+
+input#flexSwitchCheckDefault {
+    min-width: 45px;
+    max-height: 20px;
+    border-radius: 16px!important;
+    outline: 0!important;
+}
+
+.btn-primary {
+    border-radius: 0!important;
+    width: 100%;
+    margin-top: 20px;
+    background: #f3ab3b!important;
+    border: 0!important;
+    padding: 15px;
+
+}
+
+input.subscription-submit {
+    background: #f3ab3b;
+    border: 0;
+    width: 56px;
+    right: 0;
+    position: absolute;
+    top: 0;
+}
+
+button.subscription-submit {
+    width: 61px;
+    height: 43px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0;
+    background: #f3ab3b;
+}
+
+button.subscription-submit img {
+    width: 31px;
+    margin-left: 6px;
+}
+
+.card-body div, .card-body span, .card-body a {
+    font-size: 14px;
+    color: #6c757d;
+    text-decoration: none;
+}
+
+.black-color {
+    color: #1d1934!important ;
+    font-weight: 500;
+}
+
+.sign-in {
+    box-shadow: 0 0px 6px 1px #a09c9c;
+}
+
+.need-help-container {
+    background: #fff0db;
+    padding: 20px;
+}
+
+.foolinks ul li a {
+    color: #1d1934!important;
+    list-style: none;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.foolinks ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.title {
+    font-weight: 600;
+    margin-bottom: 15px;
+
+}
+
+.foolinks .text-primary h5 {
+    color: #ffc107;
+}
+
+/* Tablet */
+@media (min-width: 426px) {
+    .admin-login-page {
+        width: 80%;
+    }
+    .partner-page{
+    width: 100%;
+}
+#banding{
+    margin-left: -50% !important;
+ }  
+
+}
+
+@media (min-width: 600px) {
+    .admin-login-page {
+        width: 50%;
+    }
+}
+
+/* Laptop */
+@media (min-width: 769px) {
+    .admin-login-page {
+        width: 50%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .admin-login-page {
+        width: 30%;
+    }
+}
+
+@media (min-width: 1300px) {
+    .admin-login-page {
+        width: 45%;
+    }
+
+    #banding{
+    margin-left: -84% !important;
+ }  
+}
+
+/* _content/StarBehaviors.Web/Pages/Assessment.razor.rz.scp.css */
+.assessment-page {
+    position: relative;
+    width: 100%;
+}
+
+/* Tablet */
+@media (min-width: 600px) {
+    .assessment-page {
+        width: 80%;
+    }
+}
+
+/* Laptop */
+@media (min-width: 769px) {
+    .assessment-page {
+        width: 70%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .assessment-page {
+        width: 60%;
+    }
+     #banding{
+    margin-left: -84% !important;
+ }  
+}
+
+@media (min-width: 1300px) {
+    .assessment-page {
+        width: 50%;
+    }
+     #banding{
+    margin-left: -84% !important;
+ }  
+}
+
+/* _content/StarBehaviors.Web/Pages/Index.razor.rz.scp.css */
+.hero-image {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+    z-index: 0;
+}
+
+.main-card {
+    position: absolute;
+/*    top: 20%;*/
+    left: 50%;
+/*    transform: translate(-50%, -50%);*/
+}
+
+.main-content {
+    position: relative;
+}
+
+.offering-list {
+    padding-left: 10px;
+}
+
+.offering {
+    background: url('https://app.starbehaviors.com/StarBehaviorsLogoStar.jpg') no-repeat left top;
+    padding: 0px 10px 5px 25px;
+    margin: 0;
+    list-style: none;
+}
+
+.call-to-action {
+    color: rgb(250, 0, 0);
+}
+
+.call-to-action-sub-text {
+    color: rgb(0, 112, 192);
+}
+
+.footer-image {
+    position: static;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    z-index: -10;
+}
+
+/* Tablet */
+@media (min-width: 426px) {
+    .main-card {
+/*        top: 16%;*/
+    }
+}
+
+/* Laptop and Up */
+@media (min-width: 769px) {
+    .hero-image {
+        height: 280px;
+    }
+
+    .main-card {
+/*        top: 18%;*/
+        min-width: 30%;
+    }
+
+    .main-content {
+        max-width: 100%;
+    }
+
+    .main-content-header-section {
+        max-width: 100%;
+    }
+
+    .offering-list-card {
+        max-width: 75%;
+    }
+}
+
+/* _content/StarBehaviors.Web/Pages/Login.razor.rz.scp.css */
+/* Remove default show password icon in Edge and IE */
+input::-ms-reveal {
+    display: none;
+}
+
+.login-page {
+    position: relative;
+    width: 100%;
+}
+
+/* Tablet */
+@media (min-width: 426px) {
+    .login-page {
+        width: 80%;
+    }
+}
+
+@media (min-width: 600px) {
+    .login-page {
+        width: 50%;
+    }
+}
+
+/* Laptop */
+@media (min-width: 769px) {
+    .login-page {
+        width: 40%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .login-page {
+        width: 30%;
+    }
+}
+
+@media (min-width: 1300px) {
+    .login-page {
+        width: 25%;
+    }
+}
+
+/* _content/StarBehaviors.Web/Pages/Partner.razor.rz.scp.css */
+.partner-page {
+    position: relative;
+    width: 100%;
+}
+
+/* Laptop */
+@media (min-width: 769px) {
+    .partner-page {
+        width: 80%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .partner-page {
+        width: 60%;
+    }
+}
+
+@media (min-width: 1300px) {
+    .partner-page {
+        width: 50%;
+    }
+}
+
+/* _content/StarBehaviors.Web/Pages/PartnerAdd.razor.rz.scp.css */
+.partner-add-page {
+    position: relative;
+    width: 60%;
+}
+
+/* Tablet */
+@media (min-width: 426px) {
+    .partner-add-page {
+        width: 82%;
+    }
+}
+
+@media (min-width: 600px) {
+    .partner-add-page {
+        width: 72%;
+    }
+}
+
+/* Laptop */
+@media (min-width: 769px) {
+    .partner-add-page {
+        width: 42%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .partner-add-page {
+        width: 32%;
+    }
+}
+
+@media (min-width: 1300px) {
+    .partner-add-page {
+        width: 27%;
+    }
+}
+
+/* _content/StarBehaviors.Web/Pages/Partners.razor.rz.scp.css */
+.partners-page {
+    position: relative;
+    width: 100%;
+}
+
+/* Tablet */
+@media (min-width: 600px) {
+    .partners-page {
+        width: 50%;
+    }
+    .wrapperClassName{
+width: 100%;
+}
+
+.partner-add-page {
+    width: 60%;
+}
+}
+
+/* Laptop */
+@media (min-width: 769px) {
+    .partners-page {
+        width: 40%;
+    }
+
+    .wrapperClassName{
+width: 100%;
+}
+
+.partner-add-page {
+    width: 60%;
+}
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .partners-page {
+        width: 35%;
+    }
+}
+
+@media (min-width: 1300px) {
+    .partners-page {
+        width: 30%;
+    }
+}
+
+/* _content/StarBehaviors.Web/Pages/Register.razor.rz.scp.css */
+/* Remove default show password icon in Edge and IE */
+input::-ms-reveal {
+    display: none;
+}
+
+.register-page {
+    position: relative;
+    width: 100%;
+}
+
+/* Tablet */
+@media (min-width: 426px) {
+    .register-page {
+        width: 82%;
+    }
+}
+
+@media (min-width: 600px) {
+    .register-page {
+        width: 52%;
+    }
+}
+
+/* Laptop */
+@media (min-width: 769px) {
+    .register-page {
+        width: 42%;
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .register-page {
+        width: 32%;
+    }
+}
+
+@media (min-width: 1300px) {
+    .register-page {
+        width: 47%;
+    }
+}
+
+
+html,
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1:focus {
+    outline: none;
+}
+
+a,
+.btn-link {
+    color: #0071c1;
+}
+
+.btn-primary {
+   /* color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;*/
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.content {
+    padding-top: 1.1rem;
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+#blazor-error-ui {
+    background: lightyellow;
+    bottom: 0;
+    box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.2);
+    display: none;
+    left: 0;
+    padding: 0.6rem 1.25rem 0.7rem 1.25rem;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}
+
+.blazor-error-boundary {
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIG92ZXJmbG93PSJoaWRkZW4iPjxkZWZzPjxjbGlwUGF0aCBpZD0iY2xpcDAiPjxyZWN0IHg9IjIzNSIgeT0iNTEiIHdpZHRoPSI1NiIgaGVpZ2h0PSI0OSIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCNjbGlwMCkiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0yMzUgLTUxKSI+PHBhdGggZD0iTTI2My41MDYgNTFDMjY0LjcxNyA1MSAyNjUuODEzIDUxLjQ4MzcgMjY2LjYwNiA1Mi4yNjU4TDI2Ny4wNTIgNTIuNzk4NyAyNjcuNTM5IDUzLjYyODMgMjkwLjE4NSA5Mi4xODMxIDI5MC41NDUgOTIuNzk1IDI5MC42NTYgOTIuOTk2QzI5MC44NzcgOTMuNTEzIDI5MSA5NC4wODE1IDI5MSA5NC42NzgyIDI5MSA5Ny4wNjUxIDI4OS4wMzggOTkgMjg2LjYxNyA5OUwyNDAuMzgzIDk5QzIzNy45NjMgOTkgMjM2IDk3LjA2NTEgMjM2IDk0LjY3ODIgMjM2IDk0LjM3OTkgMjM2LjAzMSA5NC4wODg2IDIzNi4wODkgOTMuODA3MkwyMzYuMzM4IDkzLjAxNjIgMjM2Ljg1OCA5Mi4xMzE0IDI1OS40NzMgNTMuNjI5NCAyNTkuOTYxIDUyLjc5ODUgMjYwLjQwNyA1Mi4yNjU4QzI2MS4yIDUxLjQ4MzcgMjYyLjI5NiA1MSAyNjMuNTA2IDUxWk0yNjMuNTg2IDY2LjAxODNDMjYwLjczNyA2Ni4wMTgzIDI1OS4zMTMgNjcuMTI0NSAyNTkuMzEzIDY5LjMzNyAyNTkuMzEzIDY5LjYxMDIgMjU5LjMzMiA2OS44NjA4IDI1OS4zNzEgNzAuMDg4N0wyNjEuNzk1IDg0LjAxNjEgMjY1LjM4IDg0LjAxNjEgMjY3LjgyMSA2OS43NDc1QzI2Ny44NiA2OS43MzA5IDI2Ny44NzkgNjkuNTg3NyAyNjcuODc5IDY5LjMxNzkgMjY3Ljg3OSA2Ny4xMTgyIDI2Ni40NDggNjYuMDE4MyAyNjMuNTg2IDY2LjAxODNaTTI2My41NzYgODYuMDU0N0MyNjEuMDQ5IDg2LjA1NDcgMjU5Ljc4NiA4Ny4zMDA1IDI1OS43ODYgODkuNzkyMSAyNTkuNzg2IDkyLjI4MzcgMjYxLjA0OSA5My41Mjk1IDI2My41NzYgOTMuNTI5NSAyNjYuMTE2IDkzLjUyOTUgMjY3LjM4NyA5Mi4yODM3IDI2Ny4zODcgODkuNzkyMSAyNjcuMzg3IDg3LjMwMDUgMjY2LjExNiA4Ni4wNTQ3IDI2My41NzYgODYuMDU0N1oiIGZpbGw9IiNGRkU1MDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48L3N2Zz4=) no-repeat 1rem/1.8rem, #b32121;
+    padding: 1rem 1rem 1rem 3.7rem;
+    color: white;
+}
+
+.blazor-error-boundary::after {
+    content: "An error has occurred."
+}
+
+div#banding {
+    position: absolute;
+    left: 1%;
+    top: 9%;
+    margin: 0!important;
+}
+.navbar.navbar-light {
+    position: relative;
+    padding: 28px !important;
+}
+
+
+.hero-image::before {
+    background: url("https://app.starbehaviors.com/Truck7.jpg");
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: flex;
+    opacity: 0.5;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.main-card {
+    bottom: -32px;
+    -webkit-transform: translate( -50%, 0);
+    transform: translate( -50%, 0);
+    z-index: 999;
+}
