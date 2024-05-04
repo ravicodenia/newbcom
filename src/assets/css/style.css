@@ -431,6 +431,74 @@ button.subscription-submit img {
     color: #ffc107;
 }
 
+.footerMini {
+    background-color: #173540;
+    color: #e7eaec;
+    padding: 1.4rem 0;
+    font-size: 0.8rem;
+}
+
+.footerMini .copyright {
+    color: #ccc;
+}
+
+.footerMini .copyright a {
+    color: #f2aa3b;
+}
+
+.need-help-container .text-primary h5 {
+    color: #ffc107;
+}
+
+.text-primary1 {
+    color: #f2aa3b !important;
+}
+
+.card-body .otp-field {
+    flex-direction: row;
+    -moz-column-gap: 10px;
+    column-gap: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+ .otp-field input {
+    height: 45px;
+    width: 42px;
+    border-radius: 0px;
+    outline: none;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    border: 1px solid #fef6eb;
+    background-color: #fef6eb;
+}
+
+.otp-field input::-webkit-inner-spin-button {
+    display: none;
+}
+
+
+.resendOTP a {
+    color: #f3ab3b!important;
+}
+
+.resendOTP a:hover {
+    text-decoration: underline;
+}
+
+.need-help-container .social_media a {
+    color: #f2aa3b;
+    font-size: 1.2rem;
+    margin: 0 0.5rem 0.5rem 0;
+}
+
+.partnered img {
+    width: 111px;
+}
+
 /* Tablet */
 @media (min-width: 426px) {
     .admin-login-page {
