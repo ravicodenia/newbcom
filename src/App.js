@@ -62,7 +62,7 @@ const Routing = () => {
 const App = () => {
 	return (
 		<>
-			<Header />
+			
 			<Routing />
 			<Footer />
 			<GlobalFooter />
