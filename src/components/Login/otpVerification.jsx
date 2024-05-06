@@ -15,20 +15,60 @@ const OTPverification = () => {
               <div className="text-muted">Enter OTP Code sent to +1245********42</div>
 
               <div className="otp-field">
-                <input id="otpinput" type="number" />
-                <input id="otpinpu2" type="number" disabled="" />
-                <input id="otpinput3" type="number" disabled="" />
-                <input id="otpinput4" disabled="" />
-                <input id="otpinput5" type="number" disabled="" />
-                <input type="number" disabled className="d-none" />
-              </div>
+  <input
+    id="otpinput"
+    type="number"
+    maxLength={1}
+    onChange={(e) => {
+      if (e.target.value.length > 1) {
+        e.target.value = e.target.value.slice(0, 1);
+      }
+    }}
+  />
+  <input
+    id="otpinput2"
+    type="number"
+    maxLength={1}
+    onChange={(e) => {
+      if (e.target.value.length > 1) {
+        e.target.value = e.target.value.slice(0, 1);
+      }
+    }}
+    
+  />
+  <input
+    id="otpinput3"
+    type="number"
+    maxLength={1}
+    onChange={(e) => {
+      if (e.target.value.length > 1) {
+        e.target.value = e.target.value.slice(0, 1);
+      }
+    }}
+    
+  />
+  <input id="otpinput4" type="number" maxLength={1}  />
+  <input
+    id="otpinput5"
+    type="number"
+    maxLength={1}
+    onChange={(e) => {
+      if (e.target.value.length > 1) {
+        e.target.value = e.target.value.slice(0, 1);
+      }
+    }}
+    
+  />
+  <input type="number"  className="d-none" />
+</div>
+
 
 
               <div className="mb-1 text-muted">Didn't recieve OTP code? </div>
               <div className="resendOTP"> <a href="#">Resend Code </a> </div>
 
               <div className="mt-4 text-center">
-                <button name="verify" type="button"  className="btn btn-primary w-100 verify" > Verify & Proceed </button>
+                <a href="/Home"  className="btn btn-primary w-100 verify" > Verify & Proceed </a>
               </div>
 
 
