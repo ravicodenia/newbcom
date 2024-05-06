@@ -666,6 +666,248 @@ section.login-sec.p-4 .nav {
     flex-wrap: nowrap!important;
 }
 
+.nav-tabs svg {
+    font-size: 12px;
+    width: 20px;
+    height: 20px;
+    fill: #000;
+    margin: 7px;
+}
+
+.nav-tabs .nav-link.active svg {
+    fill: #fff;
+}
+
+.home-sec .nav-link {
+    padding: 0 10px!important;
+    min-width: 132px!important;
+    position: relative;
+}
+
+.home-sec .nav-link {
+    padding: 10px!important;
+    min-width: 132px!important;
+    position: relative;
+    font-size: 16px!important;
+    text-transform: UPPERCASE;
+    font-weight: 500!important;
+}
+
+.home-sec li.nav-item .nav-link{
+    background-color: #ffff;
+}
+
+.home-sec li.nav-item .nav-link.active {
+    background: #f3ab3b;
+}
+
+
+.home-sec a.nav-link:after {
+    content: '';
+    background: #173540;
+    width: 0.5px;
+    position: absolute;
+    right: 0;
+    height: 50%;
+}
+
+.home-sec li.nav-item .nav-link.active::after{
+    display: none;
+}
+
+.searchForm .flightSearch .toogleStyledRadio .switch-field label {
+    background-color: #ffffff;
+    color: #f2aa3b;
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    padding: 8px 16px;
+    border: 1px solid #f2aa3b;
+    transition: all 0.1s ease-in-out;
+}
+
+.SearchForm, #recentsearch .card {
+    padding: 10px 2rem;
+    border: solid 3px #f2aa3b!important;
+    border-radius: 0!important;
+}
+
+#recentsearch .card .card-body ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+#recentsearch .card .card-body ul li {
+    list-style: none;
+    border-left: 1px solid #ccc;
+    padding-left: 30px;
+}
+
+#recentsearch .card .card-body ul li:nth-child(1),#recentsearch .card .card-body ul li:nth-child(6) {
+    border-left: none;
+}
+
+#recentsearch .card .card-body ul li h4 span, #recentsearch .card .card-body ul li .h4 span {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #000;
+}
+
+ .switch-field input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+ .toogleStyledRadio .switch-field input:checked + label {
+    background-color: #f2aa3b;
+    box-shadow: none;
+    color: #ffffff;
+}
+
+ .switch-field input {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+ .switch-field label {
+    background-color: #ffffff;
+    color: #f2aa3b;
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    padding: 8px 16px;
+    border: 1px solid #f2aa3b;
+    transition: all 0.1s ease-in-out;
+}
+
+.radBtn span label {
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.modifySearch.mt-1 {
+    padding: 17px;
+}
+ 
+
+#recentsearch svg {
+    width: 28px;
+}
+
+.searchForm .form-select {
+    outline: none !important;
+    box-shadow: none;
+    border: solid 1px #e7eaec;
+    border-radius: 0!important;
+}
+
+.switch_destination {
+    display: inline-block;
+    position: absolute;
+    z-index: 1;
+    width: 37px;
+    height: 37px;
+    background-color: #f2aa3b;
+    fill: #fff;
+    border-radius: 50%;
+    right: -18px;
+    top: 70px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.srchRow {
+    font-size: 15px;
+}
+
+ .switch_destination svg{
+    width: 20px;
+    height: 20px
+ }
+
+ .flightheadertbl {
+    margin: 0;
+    width: 100%;
+}
+
+ .flightheadertbl tr td {
+    font-size: 11px;
+    color: #2f2f2f;
+    padding-bottom: 8px;
+    position: relative;
+}
+
+.flightheadertbl input {
+    margin-right: 10px;
+}
+
+.flightSearch .srchCon .srchRow .srchCol {
+    position: relative;
+    display: block;
+    cursor: pointer;
+    background-color: #ededed;
+    padding: 0.8rem 0 0.8rem 0.8rem;
+    min-height: 108px;
+}
+
+span.srchTitle svg {
+    width: 24px;
+}
+
+ .srchCon .srchRow .srchTitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+span.paxgroupico svg {
+    width: 10px;
+    margin: 0 2px;
+}
+
+.travelersFlight {
+    display: none;
+    position: absolute;
+    width: 340px;
+    top: 112px;
+    left: 0;
+    z-index: 100;
+    background-color: #fff;
+    background-color: #ededed;
+    padding: 1rem;
+}
+input#totalpaxflightinp {
+    width: 20px;
+    background: transparent;
+    border: 0;
+}
+
+.modifySearch svg {
+    width: 20px;
+    fill: #fff;
+    margin-right: 7px;
+}
+
+.modifySearch {
+    height: 100%;
+    padding: 19px;
+    margin-top: 15px !important;
+}
+
 @media(max-width:990px){
     li.hide_mobile {
         display: none!important;
@@ -809,6 +1051,10 @@ section.login-sec.p-4 .nav {
     z-index: -10;
 }
 
+.additional_flight_search_link svg {
+    width: 11px;
+    margin-top: -6px;
+}
 /* Tablet */
 @media (min-width: 426px) {
     .main-card {
