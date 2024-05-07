@@ -1468,3 +1468,7 @@ div#banding {
     transform: translate( -50%, 0);
     z-index: 999;
 }
+
+.form-floating>.form-control:not(:placeholder-shown)~label {
+    opacity: 0!important;
+}

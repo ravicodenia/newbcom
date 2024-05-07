@@ -5,6 +5,9 @@ import styles from "./styles.module.css";
 import { Icon } from '@iconify/react';
 import { API_BASE_URL } from '../../config/serverApiConfig';
 import OTPverification from "./otpVerification";
+import Footer from "../footer/index";
+
+
 
 const Login = () => {
   const [data, setData] = useState({ user: "", password: "" });
@@ -243,6 +246,7 @@ const Login = () => {
         </div>
 
       </section>
+      <Footer />
     </>
   );
 };

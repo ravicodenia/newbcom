@@ -33,7 +33,7 @@ const App = () => {
 		<>
 			
 			<Routing />
-			<Footer />
+			
 			<GlobalFooter />
 
 		</>
