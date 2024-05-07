@@ -726,10 +726,14 @@ section.login-sec.p-4 .nav {
     transition: all 0.1s ease-in-out;
 }
 
-.SearchForm, #recentsearch .card {
+.SearchForm {
     padding: 10px 2rem;
     border: solid 3px #f2aa3b!important;
     border-radius: 0!important;
+}
+
+#recentsearch .card{
+    border: 0!important;
 }
 
 #recentsearch .card .card-body ul {
@@ -747,6 +751,7 @@ section.login-sec.p-4 .nav {
 
 #recentsearch .card .card-body ul li:nth-child(1),#recentsearch .card .card-body ul li:nth-child(6) {
     border-left: none;
+    padding-left: 0;
 }
 
 #recentsearch .card .card-body ul li h4 span, #recentsearch .card .card-body ul li .h4 span {
@@ -906,6 +911,84 @@ input#totalpaxflightinp {
     height: 100%;
     padding: 19px;
     margin-top: 15px !important;
+}
+
+.border-1 {
+    border: 1px solid #e0e0e0;
+}
+
+.padding-left {
+    padding-left: 15px;
+}
+
+.padding-right {
+    padding-right: 15px;
+}
+
+.padding-left .px-3 {
+    padding-left: 0!important;
+}
+
+.input-grp .input-group-text {
+    width: 40px;
+    padding: 9px;
+}
+
+.table-header a {
+    color: #f3ab3b;
+    padding: 5px;
+}
+
+
+
+.latest-booking .MuiDataGrid-cell.MuiDataGrid-cellEmpty, .latest-booking .MuiDataGrid-filler {
+    display: none;
+}
+
+
+
+.latest-booking .MuiDataGrid-row .MuiDataGrid-cell {
+    padding: 0;
+    text-wrap: wrap;
+    word-break: break-word;
+    border: 0;
+    font-size: 15px;
+    color: #a5a4a4;
+    font-weight: 300;
+}
+
+.latest-booking .MuiDataGrid-row .MuiDataGrid-cell a {
+    color: #f3ab3b;
+    overflow-wrap: break-word;
+}
+
+.latest-booking .MuiDataGrid-footerContainer {
+    display: none!important;
+}
+
+.latest-booking .MuiDataGrid-row,  .latest-booking .MuiDataGrid-columnHeaders>div {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+
+.latest-booking .MuiDataGrid-columnHeaders .MuiDataGrid-columnHeaderDraggableContainer >div>div>div {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.latest-booking .MuiDataGrid-columnHeaders>div .MuiDataGrid-columnHeader {
+    padding: 0;
+}
+
+.latest-booking .MuiDataGrid-columnHeaders>div .MuiDataGrid-columnHeader .MuiDataGrid-columnHeaderDraggableContainer {
+    padding-left: 7px;
+}
+
+.recent-search svg {
+    width: 14px;
+    fill: #f3ab3b;
 }
 
 @media(max-width:990px){

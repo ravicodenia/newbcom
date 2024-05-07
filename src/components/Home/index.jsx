@@ -2,6 +2,10 @@ import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Flights from './Flights'
 import RecentSearches from "./Flights/recentSearches";
+import Flights from './Flights'
+import RecentSearches from "./Flights/recentSearches";
+import BannerSection from "./Flights/bannersSection";
+import LatestBooking from "./Flights/latestBooking";
 const homePage = () => {
   
 document.addEventListener('DOMContentLoaded', function () {
@@ -76,8 +80,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                   <div className="tab-content">
                     <div className="tab-pane fade show active" id="flights" role="tabpanel">
-                      <Flights/>
+                     <Flights/>
                       <RecentSearches/>
+                      <BannerSection/>
+                      <LatestBooking/>
                     </div>
                     <div className="tab-pane fade" id="hotels" role="tabpanel">
                      Hotels
