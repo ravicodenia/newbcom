@@ -1,7 +1,21 @@
-import React from 'react';
+import React,{ useState,useEffect } from "react";
+import * as apiService from "../../../services";
 
 function RecentSearch() {
+
+   const [homeScreenShowHide, setHomeScreenShowHide] = useState([]);
+
+    const fetchData = async (e) => {
+    const data = await apiService.homeScreenShowHide({ value: 1 });
+    console.log(data.homeScreenShowHide);
+    setHomeScreenShowHide(data.homeScreenShowHide);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
+    <div>
+    {homeScreenShowHide.find(item => item.text === "SHOW_RECENT_SEARCH" && item.show) && (
     <section className="recent-search"> 
     <div className="container">   
     <div className="row align-items-center mt-2">
@@ -74,6 +88,8 @@ function RecentSearch() {
     </div>
     </div>
 </section>
+)}
+</div>
 
   );
 }

@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React,{ useState,useEffect } from "react";
+import * as apiService from "../../../services";
 import $ from 'jquery';
 
 const Flights = () => {
@@ -14,6 +15,17 @@ const Flights = () => {
             $('#div_additional_flight_search').toggle();
           });
         }, []);
+
+     const [homeScreenShowHide, setHomeScreenShowHide] = useState([]);
+
+    const fetchData = async (e) => {
+    const data = await apiService.homeScreenShowHide({ value: 1 });
+    console.log(data.homeScreenShowHide);
+    setHomeScreenShowHide(data.homeScreenShowHide);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <section className="Flight-sec">
       <div className="container">
@@ -42,7 +54,7 @@ const Flights = () => {
                                         </span>
                                     </div>
                                 </div>
-
+                               {homeScreenShowHide.find(item => item.text === "SHOW SELF CLIENT" && item.show) && (
                                 <div className="col-lg-6 text-end">
                                     <div className="toogleStyledRadio"> 
                                         <div className="switch-field">
@@ -53,6 +65,7 @@ const Flights = () => {
                                         </div>
                                     </div>
                                 </div>
+                                )}
                             </div>
                             <div className="row" style={{display:'none'}}>
                                 <div class="row">
