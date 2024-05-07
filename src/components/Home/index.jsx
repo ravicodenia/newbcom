@@ -2,8 +2,6 @@ import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Flights from './Flights'
 import RecentSearches from "./Flights/recentSearches";
-import Flights from './Flights'
-import RecentSearches from "./Flights/recentSearches";
 import BannerSection from "./Flights/bannersSection";
 import LatestBooking from "./Flights/latestBooking";
 const homePage = () => {
