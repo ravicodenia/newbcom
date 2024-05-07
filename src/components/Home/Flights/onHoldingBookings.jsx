@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{ useState,useEffect } from "react";
+import * as apiService from "../../../services";
 import Grid from '@material-ui/core/Grid';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
@@ -18,12 +19,24 @@ const columns: GridColDef[] = [
     { id: 5, bookingRef: 'TWX169661197899', firstName: 'Julie Snow', date: '2024-05-07', stage: 'Completed', module: 'Flight', bgColor: '#d1f4e8', color:'#05a56d' },
     { id: 6, bookingRef: 'TWX169661197899', firstName: 'Mary Lannister', date: '2024-05-08', stage: 'Pending', module: 'Flight', bgColor: '#e5f0fe', color:'#2a5ee6' },
   ];
+
+  const [homeScreenShowHide, setHomeScreenShowHide] = useState([]);
+
+    const fetchData = async (e) => {
+    const data = await apiService.homeScreenShowHide({ value: 1 });
+    console.log(data.homeScreenShowHide);
+    setHomeScreenShowHide(data.homeScreenShowHide);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   
 
 function OnHoldingBookings() {
   return (
 
-   
+                            <div>
+                             {homeScreenShowHide.find(item => item.text === "SHOW_ONHOLD_BOOKINGS" && item.show) && (
                             <div style={{ width: '100%' }} className='border-1'>
                              <div className="table-header border-bottom d-flex justify-content-between align-items-center py-3 px-2">
                                 <h6 className='m-0'>ON HOLD BOOKINGS</h6>
@@ -41,6 +54,8 @@ function OnHoldingBookings() {
                                     rows={rows}
                                     columns={columns}
                                     />
+                            </div>
+                            )}
                             </div>
   );
 }

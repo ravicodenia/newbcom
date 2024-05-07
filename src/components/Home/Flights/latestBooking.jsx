@@ -1,4 +1,5 @@
-import React from 'react';
+import React,{ useState,useEffect } from "react";
+import * as apiService from "../../../services";
 import Grid from '@material-ui/core/Grid';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import OnHoldingBookings from './onHoldingBookings';
@@ -20,8 +21,21 @@ const rows = [
   { id: 6, bookingRef: 'TWX169661197899', firstName: 'Mary Lannister', date: '2024-05-08', stage: 'Pending', module: 'Flight', bgColor: '#e5f0fe', color:'#2a5ee6' },
 ];
 
+
+   const [homeScreenShowHide, setHomeScreenShowHide] = useState([]);
+
+    const fetchData = async (e) => {
+    const data = await apiService.homeScreenShowHide({ value: 1 });
+    console.log(data.homeScreenShowHide);
+    setHomeScreenShowHide(data.homeScreenShowHide);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
 function LatestBooking() {
   return (
+    <div>
+    {homeScreenShowHide.find(item => item.text === "SHOW_MY_BOOKINGS" && item.show) && (
     <section className="latest-booking py-3 pb-5"> 
       <div className='container'>
         <Grid container>
@@ -51,6 +65,8 @@ function LatestBooking() {
         </Grid>
       </div>
     </section>
+    )}
+    </div>
   );
 }
 
