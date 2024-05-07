@@ -4,101 +4,31 @@ import axios from 'axios';
 import errorHandler from '../request/errorHandler';
 import successHandler from '../request/successHandler';
 
-// export const countryname = async (countrys) => {
-//   try {
-//     const response = await fetch(API_BASE_URL + `ttjcitylist`, {
-//       method: 'POST', // *GET, POST, PUT, DELETE, etc.
-//       headers: {
-//         'Content-Type': 'application/json',
-//         // 'Content-Type': 'application/x-www-form-urlencoded',
-//       },
-//       body: JSON.stringify(countrys), // body data type must match "Content-Type" header
-//     });
 
-//     const { status } = response;
-//     const data = await response.json();
 
-//     // successHandler(
-//     //   { data, status },
-//     //   {
-//     //     notifyOnSuccess: false,
-//     //     notifyOnFailed: true,
-//     //   }
-//     // );
-//     return data;
-//   } catch (error) {
-//     return errorHandler(error);
-//   }
-// };
 
-export const statename = async ({value}) => {
-//    console.log(value);
+export const homeScreenShowHide = async ({ value }) => {
   try {
-    const raw = JSON.stringify({
-      "country" : value
-     
-    });
-    const response = await fetch(API_BASE_URL + `ttjstatelist`, {
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    const url = `https://bcom-services.pierofcloudtech.com/api/Home/GetAgentConfigItems?agentId=${value}`;
+    
+    const response = await fetch(url, {
+      method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-
-     
-      body: raw,
+        'Content-Type': 'application/json'
+      }
     });
-    // console.log(response);
-    const { status } = response;
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
     const data = await response.json();
-    console.log(data);
-    // successHandler(
-    //   { data, status },
-    //   {
-    //     notifyOnSuccess: false,
-    //     notifyOnFailed: true,
-    //   }
-    // );
     return data;
-  }
-   catch (error) {
-    return errorHandler(error);
+  } catch (error) {
+    console.error('Error:', error);
+    return null; // Or handle the error appropriately
   }
 };
 
-export const cityname = async ({values}) => {
-    // console.log(values);
-   try {
-     const raw = JSON.stringify({
-       "state" : values
-      
-     });
-     const response = await fetch(API_BASE_URL + `ttjcitylist`, {
-       method: 'POST', // *GET, POST, PUT, DELETE, etc.
-       headers: {
-         'Content-Type': 'application/json',
-         // 'Content-Type': 'application/x-www-form-urlencoded',
-       },
- 
-      
-       body: raw,
-     });
-    //  console.log(response);
-     const { status } = response;
-     const data = await response.json();
-     console.log(data);
-     // successHandler(
-     //   { data, status },
-     //   {
-     //     notifyOnSuccess: false,
-     //     notifyOnFailed: true,
-     //   }
-     // );
-     return data;
-   }
-    catch (error) {
-     return errorHandler(error);
-   }
- };
 
 

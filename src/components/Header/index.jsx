@@ -1,12 +1,24 @@
-import { useState } from "react";
+import React,{ useState,useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { faBell  } from '@fortawesome/free-solid-svg-icons';
 
+import * as apiService from "../../services";
+
 
 const Header = () => {
+    const [homeScreenShowHide, setHomeScreenShowHide] = useState([]);
+
+    const fetchData = async (e) => {
+    const data = await apiService.homeScreenShowHide({ value: 1 });
+    console.log(data.homeScreenShowHide);
+    setHomeScreenShowHide(data.homeScreenShowHide);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
  
 
     return (
@@ -36,7 +48,7 @@ const Header = () => {
                             </div>
                             <div className="col-4 col-lg-6 col-md-6">
                                 <div className="topLinks">
-                                    <ul>
+                                    {/*<ul>
                                         <li className="hide_mobile"> <a href="#">My Wallet</a>  </li>
                                         <li className="hide_mobile"> <a href="#">Contact Sales</a>  </li>
                                         <li className="hide_mobile"> <a href="#">Support</a>  </li>
@@ -48,7 +60,28 @@ const Header = () => {
                                                 </span></span></a>
 
                                         </li>
-                                    </ul>
+                                    </ul>*/}
+
+                                <ul>
+                              <li className="hide_mobile"> <a href="#">My Wallet</a>  </li>
+                                {homeScreenShowHide.find(item => item.text === "SHOW CONTACT" && item.show) && (
+                              <li className="hide_mobile"> <a href="#">Contact Sales</a>  </li>
+                              )}
+                              {homeScreenShowHide.find(item => item.text === "SHOW SALES SUPPORT" && item.show) && (
+                              <li className="hide_mobile"> <a href="#">Support</a>  </li>
+                              )}
+                              {homeScreenShowHide.find(item => item.text === "SHOW BANK DETAILS" && item.show) && (
+                                <li className="hide_mobile"> <a href="#">Bank Details</a>  </li>
+                              )}
+                              <li>
+                                <a href="#">
+                                  <span className="notification">
+                                    <FontAwesomeIcon icon={faBell} />
+                                    <span name="notification" className="nc">12</span>
+                                  </span>
+                                </a>
+                              </li>
+                            </ul>
 
                                 </div>
 

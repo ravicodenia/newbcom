@@ -1,9 +1,9 @@
 export const API_BASE_URL =
   process.env.REACT_APP_ENV == 'production'
-    ? 'https://casaahaanahotels.com/'
+    ? 'https://bcom-services.pierofcloudtech.com/api'
     : process.env.REACT_APP_ENV == 'local'
-      ? 'https://casaahaanahotels.com/'
-      : 'https://casaahaanahotels.com/';
+      ? 'https://bcom-services.pierofcloudtech.com/api'
+      : 'https://bcom-services.pierofcloudtech.com/api';
 export const ACCESS_TOKEN_NAME = 'x-auth-token';
 
 // export default {
