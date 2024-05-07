@@ -20,6 +20,9 @@ const columns: GridColDef[] = [
     { id: 6, bookingRef: 'TWX169661197899', firstName: 'Mary Lannister', date: '2024-05-08', stage: 'Pending', module: 'Flight', bgColor: '#e5f0fe', color:'#2a5ee6' },
   ];
 
+
+function OnHoldingBookings() {
+    
   const [homeScreenShowHide, setHomeScreenShowHide] = useState([]);
 
     const fetchData = async (e) => {
@@ -31,8 +34,6 @@ const columns: GridColDef[] = [
     fetchData();
   }, []);
   
-
-function OnHoldingBookings() {
   return (
 
                             <div>

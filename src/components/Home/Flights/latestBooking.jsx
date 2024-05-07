@@ -22,7 +22,9 @@ const rows = [
 ];
 
 
-   const [homeScreenShowHide, setHomeScreenShowHide] = useState([]);
+
+function LatestBooking() {
+     const [homeScreenShowHide, setHomeScreenShowHide] = useState([]);
 
     const fetchData = async (e) => {
     const data = await apiService.homeScreenShowHide({ value: 1 });
@@ -32,7 +34,6 @@ const rows = [
   useEffect(() => {
     fetchData();
   }, []);
-function LatestBooking() {
   return (
     <div>
     {homeScreenShowHide.find(item => item.text === "SHOW_MY_BOOKINGS" && item.show) && (
