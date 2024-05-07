@@ -1,9 +1,22 @@
-import React from 'react';
+import React,{ useState,useEffect } from "react";
+import * as apiService from "../../../services";
 import Grid from '@material-ui/core/Grid';
 
 
 function BannerSection() {
+       const [homeScreenShowHide, setHomeScreenShowHide] = useState([]);
+
+    const fetchData = async (e) => {
+    const data = await apiService.homeScreenShowHide({ value: 1 });
+    console.log(data.homeScreenShowHide);
+    setHomeScreenShowHide(data.homeScreenShowHide);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
+    <div>
+      {homeScreenShowHide.find(item => item.text === "SHOW_BANNERS" && item.show) && (
     <section className="banner-sec py-3"> 
         <div className='container'>
 
@@ -35,6 +48,8 @@ function BannerSection() {
             </Grid>
         </div>
     </section>
+    )}
+    </div>
 
   );
 }
