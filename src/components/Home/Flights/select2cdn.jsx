@@ -39,7 +39,7 @@ const MySelectComponent = () => {
 
     const handleChange = (selectedOption) => {
         setSelectedOption(selectedOption);
-        alert(selectedOption.value)
+        
     };
 
     const formatState = (state) => {
