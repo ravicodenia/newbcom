@@ -4,36 +4,56 @@ import Grid from '@material-ui/core/Grid';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import OnHoldingBookings from './onHoldingBookings';
 
+// const columns: GridColDef[] = [
+//   { field: 'bookingRef', headerName: 'Booking Ref', renderCell: (params) => <a href="#">{params.value}</a> },
+//   { field: 'firstName', headerName: 'Lead Pax' },
+//   { field: 'date', headerName: 'Travel Date'},
+//   { field: 'stage', headerName: 'Booking Stage', renderCell: (params) => <span style={{ backgroundColor: params.row.bgColor, color: params.row.color, padding: '10px 6px', minWidth:"98px" }}>{params.value}</span> },
+//   { field: 'module', headerName: 'Module'},
+// ];
+
+// const rows = [
+//   { id: 1, bookingRef: 'TWX169661197899', firstName: 'Jon Snow', date: '2024-05-07', stage: 'Completed', module: 'Flight', bgColor: '#d1f4e8', color:'#05a56d' },
+//   { id: 2, bookingRef: 'TWX169661197899', firstName: 'Cersei Lannister', date: '2024-05-08', stage: 'Pending', module: 'Flight', bgColor: '#e5f0fe', color:'#2a5ee6' },
+//   { id: 3, bookingRef: 'TWX169661197899', firstName: 'Mary Snow', date: '2024-05-07', stage: 'Completed', module: 'Flight', bgColor: '#d1f4e8', color:'#05a56d' },
+//   { id: 4, bookingRef: 'TWX169661197899', firstName: 'Post Malon', date: '2024-05-08', stage: 'Cancelled', module: 'Flight', bgColor: '#ffe1e6', color:'#d65b70' },
+//   { id: 5, bookingRef: 'TWX169661197899', firstName: 'Julie Snow', date: '2024-05-07', stage: 'Completed', module: 'Flight', bgColor: '#d1f4e8', color:'#05a56d' },
+//   { id: 6, bookingRef: 'TWX169661197899', firstName: 'Mary Lannister', date: '2024-05-08', stage: 'Pending', module: 'Flight', bgColor: '#e5f0fe', color:'#2a5ee6' },
+// ];
+
 const columns: GridColDef[] = [
   { field: 'bookingRef', headerName: 'Booking Ref', renderCell: (params) => <a href="#">{params.value}</a> },
-  { field: 'firstName', headerName: 'Lead Pax' },
-  { field: 'date', headerName: 'Travel Date'},
-  { field: 'stage', headerName: 'Booking Stage', renderCell: (params) => <span style={{ backgroundColor: params.row.bgColor, color: params.row.color, padding: '10px 6px', minWidth:"98px" }}>{params.value}</span> },
-  { field: 'module', headerName: 'Module'},
+  { field: 'leadPax', headerName: 'Lead Pax' },
+  { field: 'travelDate', headerName: 'Travel Date' },
+  { field: 'bookingStage', headerName: 'Booking Stage', renderCell: (params) => <span style={{ backgroundColor: params.row.bgColor, color: params.row.color, padding: '10px 6px', minWidth: "98px" }}>{params.value}</span> },
+  { field: 'module', headerName: 'Module' },
 ];
-
-const rows = [
-  { id: 1, bookingRef: 'TWX169661197899', firstName: 'Jon Snow', date: '2024-05-07', stage: 'Completed', module: 'Flight', bgColor: '#d1f4e8', color:'#05a56d' },
-  { id: 2, bookingRef: 'TWX169661197899', firstName: 'Cersei Lannister', date: '2024-05-08', stage: 'Pending', module: 'Flight', bgColor: '#e5f0fe', color:'#2a5ee6' },
-  { id: 3, bookingRef: 'TWX169661197899', firstName: 'Mary Snow', date: '2024-05-07', stage: 'Completed', module: 'Flight', bgColor: '#d1f4e8', color:'#05a56d' },
-  { id: 4, bookingRef: 'TWX169661197899', firstName: 'Post Malon', date: '2024-05-08', stage: 'Cancelled', module: 'Flight', bgColor: '#ffe1e6', color:'#d65b70' },
-  { id: 5, bookingRef: 'TWX169661197899', firstName: 'Julie Snow', date: '2024-05-07', stage: 'Completed', module: 'Flight', bgColor: '#d1f4e8', color:'#05a56d' },
-  { id: 6, bookingRef: 'TWX169661197899', firstName: 'Mary Lannister', date: '2024-05-08', stage: 'Pending', module: 'Flight', bgColor: '#e5f0fe', color:'#2a5ee6' },
-];
-
 
 
 function LatestBooking() {
      const [homeScreenShowHide, setHomeScreenShowHide] = useState([]);
+     const [rows, setRows] = useState([]);
 
     const fetchData = async (e) => {
     const data = await apiService.homeScreenShowHide({ value: 1 });
     console.log(data.homeScreenShowHide);
-    setHomeScreenShowHide(data.homeScreenShowHide);
+    setHomeScreenShowHide(data.homeScreenShowHide);   
   };
+
+  const fetchDataHomeBooking = async () => {
+    const data = await apiService.homeBooking({ value: 1 });
+    // Filter rows where bookingType is "Hold"
+    const holdBookings = data.filter(row => row.bookingType === "Complete");
+    // Assign unique IDs to each row
+    const rowsWithIds = holdBookings.map((row, index) => ({ ...row, id: index }));
+    setRows(rowsWithIds);
+};
+
   useEffect(() => {
     fetchData();
+    fetchDataHomeBooking();
   }, []);
+
   return (
     <div>
     {homeScreenShowHide.find(item => item.text === "SHOW_MY_BOOKINGS" && item.show) && (

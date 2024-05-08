@@ -58,6 +58,10 @@ button.btn.btn-outline-secondary.text-uppercase {
     max-width: 75%;
     margin: auto;
 }
+
+ul.slick-dots {
+    display: none!important;
+}
 /* Basic CSS for the table */
 table {
   width: 96%;
@@ -551,6 +555,7 @@ button.subscription-submit img {
     padding: 0;
     text-align: right;
     display: flex;
+    justify-content: flex-end;
 }
 
 .headerMain .navbar_lg {
@@ -732,8 +737,10 @@ section.login-sec.p-4 .nav {
     border-radius: 0!important;
 }
 
-#recentsearch .card{
+#recentsearch .card {
     border: 0!important;
+    border-left: 1px solid #6c5d5d !important;
+    border-radius: 0;
 }
 
 #recentsearch .card .card-body ul {
@@ -755,9 +762,10 @@ section.login-sec.p-4 .nav {
 }
 
 #recentsearch .card .card-body ul li h4 span, #recentsearch .card .card-body ul li .h4 span {
-    font-weight: 600;
-    font-size: 1.2rem;
+    font-weight: 400;
+    font-size: 1.4rem;
     color: #000;
+    margin-left: 8px!important;
 }
 
  .switch-field input {
@@ -796,15 +804,33 @@ section.login-sec.p-4 .nav {
 }
 
 .radBtn span label {
-    margin-left: 10px;
-    font-size: 18px;
+    font-size: 12px;
     font-weight: 400;
     text-transform: uppercase;
-    margin-bottom: 20px;
+    margin:0;
+}
+
+.radBtn input {
+    display: none;
 }
 
 .modifySearch.mt-1 {
     padding: 17px;
+}
+
+.radBtn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.radBtn span {
+    color: #173540;
+    border: 1px solid #173540;
+    padding: 6px;
+    text-align: center;
+    padding: 2px !important;
+    min-width: 70px;
 }
  
 
@@ -868,6 +894,25 @@ section.login-sec.p-4 .nav {
     background-color: #ededed;
     padding: 0.8rem 0 0.8rem 0.8rem;
     min-height: 108px;
+    max-width: 237px;
+}
+
+button.input-group-text {
+    padding: 7px;
+    min-width: 30px;
+}
+
+button.input-group-text svg {
+    fill: #fff;
+}
+
+.SearchForm .travelersFlight .input-group .input-group-text {
+    background-color: #173540;
+    color: #ffffff;
+}
+
+.SearchForm .travelersFlight .input-group .input-group-text:disabled {
+    background-color: #ababab;
 }
 
 span.srchTitle svg {
@@ -888,7 +933,7 @@ span.paxgroupico svg {
     display: none;
     position: absolute;
     width: 340px;
-    top: 112px;
+    top: 140px;
     left: 0;
     z-index: 100;
     background-color: #fff;
@@ -987,8 +1032,70 @@ input#totalpaxflightinp {
 }
 
 .recent-search svg {
-    width: 14px;
+    width: 12px;
+    margin-left: 3px;
     fill: #f3ab3b;
+}
+
+.client-sec select {
+    border-radius: 0;
+}
+
+.SearchForm  .addMulticityRow {
+    display: inline-block;
+    border: solid 1px #f2aa3b;
+    color: #1d1934;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.SearchForm .addMulticityRow svg, .deleteMulticityRow svg {
+    width: 14px;
+    margin-right: 5px;
+}
+
+a.deleteMulticityRow {
+    display: none;
+}
+
+div#multishop-sec .row:last-child .deleteMulticityRow {
+    display: block;
+}
+
+
+.select2 {
+    position: absolute;
+    top: 25px;
+    opacity: 0;
+    left: 9px;
+    width: 91%;
+    background: transparent!important;
+}
+
+#recentsearch{
+    border: 3px solid #f2aa3b;
+    padding: 10px 0;
+}
+
+#recentsearch .card-body {
+    padding: 0 10px;
+    padding-left: 16px;
+}
+
+#recentsearch svg {
+    fill: #000;
+    width: 17px!important;
+    margin: 0 5px;
+}
+
+.active-radio {
+    background: #173540;
+    color: #fff!important;
+    border: 1px solid #173540;
+    padding: 6px;
 }
 
 @media(max-width:990px){
@@ -1467,8 +1574,4 @@ div#banding {
     -webkit-transform: translate( -50%, 0);
     transform: translate( -50%, 0);
     z-index: 999;
-}
-
-.form-floating>.form-control:not(:placeholder-shown)~label {
-    opacity: 0!important;
 }

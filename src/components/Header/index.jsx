@@ -10,14 +10,57 @@ import * as apiService from "../../services";
 
 const Header = () => {
     const [homeScreenShowHide, setHomeScreenShowHide] = useState([]);
+    const [dropDownmenuItems, setDropDownMenuItems] = useState([]);
+    const [matchedParentIds, setMatchedParentIds] = useState([]);
 
-    const fetchData = async (e) => {
+  //   const fetchData = async (e) => {
+  //   const data = await apiService.homeScreenShowHide({ value: 1 });
+  //   console.log(data.homeScreenShowHide);
+  //   setHomeScreenShowHide(data.homeScreenShowHide);
+
+  //   const desiredNames = ['SETTINGS', 'OPS', 'User Management', 'FIN'];
+  //   const filteredData = data.menuItems.filter(item => desiredNames.includes(item.name));
+
+  //   // Get the IDs of the filtered data
+  //   const filteredIds = filteredData.map(item => item.id);
+
+  //   // Filter again based on matching parentId with filteredIds
+  //   const finalFilteredData = data.menuItems.filter(item => {
+  //   return desiredNames.includes(item.name) || filteredIds.includes(item.parentId);
+  //   });
+
+  //   console.log('filteredData',finalFilteredData);
+  //   setDropDownMenuItems(filteredData);
+  // };
+
+  const fetchData = async (e) => {
     const data = await apiService.homeScreenShowHide({ value: 1 });
-    console.log(data.homeScreenShowHide);
+    // console.log(data.homeScreenShowHide);
     setHomeScreenShowHide(data.homeScreenShowHide);
-  };
+
+    const desiredNames = ['SETTINGS', 'OPS', 'User Management', 'FIN'];
+
+    // Filter items where name matches desiredNames
+    const matchedNames = data.menuItems.filter(item => desiredNames.includes(item.name));
+
+    // Get the IDs of the filtered data
+    const filteredIds = matchedNames.map(item => item.id);
+
+    // Filter again based on matching parentId with filteredIds
+    const matchedParentIds = data.menuItems.filter(item => filteredIds.includes(item.parentId));
+
+    // console.log('matchedNames', matchedNames);
+    // console.log('matchedParentIds', matchedParentIds);
+
+    setDropDownMenuItems(matchedNames);
+    setMatchedParentIds(matchedParentIds);
+    // set another state for matchedParentIds if needed
+};
+
+
   useEffect(() => {
     fetchData();
+    // console.log(dropDownmenuItems);
   }, []);
  
 
@@ -63,7 +106,7 @@ const Header = () => {
                                     </ul>*/}
 
                                 <ul>
-                              <li className="hide_mobile"> <a href="#">My Wallet</a>  </li>
+                              <li className="hide_mobile"> <a href="#">My Wallet <span>USD 190.00</span></a>  </li>
                                 {homeScreenShowHide.find(item => item.text === "SHOW CONTACT" && item.show) && (
                               <li className="hide_mobile"> <a href="#">Contact Sales</a>  </li>
                               )}
@@ -110,7 +153,7 @@ const Header = () => {
             </a>
             <div className="navbar_collapse hide_mobile">
               <div className="row align-items-center ms-lg-auto">   
-                <ul className="nav_links">
+                {/* <ul className="nav_links">
                   <li className="nav_item"> 
                     <div className="dropdown show">
                       <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuSetting" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -123,11 +166,6 @@ const Header = () => {
                         <a className="dropdown-item" href="#">Hotel</a>
                       </div>
                     </div>
-
-                  
-                  
-                  
-                  
                   </li>
                   
                   <li className="nav_item"> 
@@ -199,7 +237,43 @@ const Header = () => {
 
 
 
-                  </ul>
+                  </ul> */}
+                <ul className="nav_links">
+                  {dropDownmenuItems
+                    // Filter out parent items
+                    .filter(item => item.parentId === null)
+                    .map(parentItem => (
+                        <li key={parentItem.id} className="nav_item">
+                            <div className="dropdown show">
+                                <a className="dropdown-toggle" href="#" role="button" id={`dropdownMenu${parentItem.name}`} data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {parentItem.name}
+                                </a>
+                                
+                      <div className="dropdown-menu" aria-labelledby={`dropdownMenu${parentItem.name}`}>
+                        {matchedParentIds
+                          // Filter child items by parent id
+                          .filter(childItem => childItem.parentId === parentItem.id)
+                          .map(childItem => (
+                              <a key={childItem.id} className="dropdown-item" href="#">
+                                  {childItem.pageName}
+                              </a>
+                        ))}
+                      </div>
+                     </div>
+                    </li>
+                  ))}
+                    <li className="nav_item ms-3"> 
+                      <button onclick="location.href='login.html';" className="loginbtn"> 
+                        <img className="userpic" src="/imgs/user.jpg" alt="user" /> 
+                        <FontAwesomeIcon icon={faSignOutAlt} />
+                        Sign Out
+                      </button> 
+                    </li>
+                </ul>
+
+
+
+
 
               </div>
             </div>
