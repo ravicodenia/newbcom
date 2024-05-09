@@ -150,7 +150,7 @@ const Header = () => {
           <div className="col-6 col-md-6 col-lg-2">
             <a className="navbar_brand" href="/login">
 
-              <img className="img-fluid" src={homelogo} />
+              <img className="img-fluid" src="/imgs/logo.png"/>
 
             </a>
           </div>
