@@ -21,6 +21,19 @@ import OnHoldingBookings from './onHoldingBookings';
 //   { id: 6, bookingRef: 'TWX169661197899', firstName: 'Mary Lannister', date: '2024-05-08', stage: 'Pending', module: 'Flight', bgColor: '#e5f0fe', color:'#2a5ee6' },
 // ];
 
+const getColorAndBgColor = bookingType => {
+    switch (bookingType) {
+        case "Cancelled":
+            return { bgColor: '#ffe1e6', color: '#d65b70' };
+        case "Completed":
+            return { bgColor: '#d1f4e8', color: '#05a56d' };
+        case "Pending":
+            return { bgColor: '#e5f0fe', color: '#2a5ee6' };
+        default:
+            return { bgColor: '#ffffff', color: '#000000' }; // Default values if booking type doesn't match
+    }
+};
+
 const columns: GridColDef[] = [
   { field: 'bookingRef', headerName: 'Booking Ref', renderCell: (params) => <a href="#">{params.value}</a> },
   { field: 'leadPax', headerName: 'Lead Pax' },
@@ -44,9 +57,13 @@ function LatestBooking() {
     const data = await apiService.homeBooking({ value: 1 });
     // Filter rows where bookingType is "Hold"
     const holdBookings = data.filter(row => row.bookingType === "Complete");
-    // Assign unique IDs to each row
-    const rowsWithIds = holdBookings.map((row, index) => ({ ...row, id: index }));
-    setRows(rowsWithIds);
+    // Assign unique IDs to each row and add color and background color properties
+    const rowsWithIdsAndColors = holdBookings.map((row, index) => ({
+        ...row,
+        id: index,
+        ...getColorAndBgColor(row.bookingStage) // Add color and background color based on booking stage
+    }));
+    setRows(rowsWithIdsAndColors);
 };
 
   useEffect(() => {

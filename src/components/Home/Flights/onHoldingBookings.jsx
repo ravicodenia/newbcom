@@ -21,14 +21,40 @@ function OnHoldingBookings() {
         setHomeScreenShowHide(data.homeScreenShowHide);
     };
 
-    const fetchDataHomeBooking = async () => {
-      const data = await apiService.homeBooking({ value: 1 });
-      // Filter rows where bookingType is "Hold"
-      const holdBookings = data.filter(row => row.bookingType === "Hold");
-      // Assign unique IDs to each row
-      const rowsWithIds = holdBookings.map((row, index) => ({ ...row, id: index }));
-      setRows(rowsWithIds);
-  };
+    const getColorAndBgColor = bookingType => {
+    switch (bookingType) {
+        case "Cancelled":
+            return { bgColor: '#ffe1e6', color: '#d65b70' };
+        case "Completed":
+            return { bgColor: '#d1f4e8', color: '#05a56d' };
+        case "Pending":
+            return { bgColor: '#e5f0fe', color: '#2a5ee6' };
+        default:
+            return { bgColor: '#ffffff', color: '#000000' }; // Default values if booking type doesn't match
+    }
+};
+
+const fetchDataHomeBooking = async () => {
+    const data = await apiService.homeBooking({ value: 1 });
+    // Filter rows where bookingType is "Hold"
+    const holdBookings = data.filter(row => row.bookingType === "Hold");
+    // Assign unique IDs to each row and add color and background color properties
+    const rowsWithIdsAndColors = holdBookings.map((row, index) => ({
+        ...row,
+        id: index,
+        ...getColorAndBgColor(row.bookingStage) // Add color and background color based on booking stage
+    }));
+    setRows(rowsWithIdsAndColors);
+};
+
+  //   const fetchDataHomeBooking = async () => {
+  //     const data = await apiService.homeBooking({ value: 1 });
+  //     // Filter rows where bookingType is "Hold"
+  //     const holdBookings = data.filter(row => row.bookingType === "Hold");
+  //     // Assign unique IDs to each row
+  //     const rowsWithIds = holdBookings.map((row, index) => ({ ...row, id: index }));
+  //     setRows(rowsWithIds);
+  // };
 
     useEffect(() => {
         fetchData();
