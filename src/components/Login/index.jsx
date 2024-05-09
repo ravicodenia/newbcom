@@ -20,100 +20,11 @@ const Login = () => {
   };
 
 
-  // useEffect(() => {
-  //   localStorage.removeItem("token1");
-  // }, []);
-
   const handleTogglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-  // console.log(data.user);
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      setError("");
-      const url = API_BASE_URL + "/sbuserlogin";
-      const { data: res } = await axios.post(url, data);
-      if (res.user_login) {
-        window.localStorage.setItem("token", res.user_login);
-        window.localStorage.setItem('user_data', JSON.stringify(res.user_data[0]));
-        window.localStorage.setItem("adminid", res.user_data[0].adminid);
-        window.localStorage.setItem("admin_type", res.user_data[0].admin_type);
-        window.localStorage.setItem("adminemail", res.user_data[0].adminemail);
-        window.location = "/partners";
-      } else {
-        setError(res.Message);
-      }
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
-        setError(error.response.data.message);
-      }
-    }
-  };
-
-  document.addEventListener('DOMContentLoaded', function () {
-    var navLinks = document.querySelectorAll('.nav-link');
-
-    document.addEventListener('DOMContentLoaded', function () {
-      var navLinks = document.querySelectorAll('.nav-link');
-
-      navLinks.forEach(function (link) {
-        link.addEventListener('click', function (e) {
-          e.preventDefault(); // Prevent default anchor behavior
-          var tabId = this.getAttribute('href');
-
-          // Remove 'active' class from all nav links
-          navLinks.forEach(function (navLink) {
-            navLink.classList.remove('active');
-          });
-
-          // Remove 'show' and 'active' classes from all tab panes
-          var tabPanes = document.querySelectorAll('.tab-pane');
-          tabPanes.forEach(function (tabPane) {
-            tabPane.classList.remove('show', 'active');
-          });
-
-          // Add 'active' class to the clicked nav link
-          this.classList.add('active');
-
-          // Add 'show' and 'active' classes to the corresponding tab pane
-          document.querySelector(tabId).classList.add('show', 'active');
-        });
-      });
-    });
-  });
-
-  document.addEventListener('DOMContentLoaded', function () {
-    var navLinks = document.querySelectorAll('.nav-link');
-
-    navLinks.forEach(function (link) {
-      link.addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent default anchor behavior
-        var tabId = this.getAttribute('href');
-
-        // Remove 'active' class from all nav links
-        navLinks.forEach(function (navLink) {
-          navLink.classList.remove('active');
-        });
-
-        // Remove 'show' and 'active' classes from all tab panes
-        var tabPanes = document.querySelectorAll('.tab-pane');
-        tabPanes.forEach(function (tabPane) {
-          tabPane.classList.remove('show', 'active');
-        });
-
-        // Add 'active' class to the clicked nav link
-        this.classList.add('active');
-
-        // Add 'show' and 'active' classes to the corresponding tab pane
-        document.querySelector(tabId).classList.add('show', 'active');
-      });
-    });
-  });
+ 
+  
 
   document.addEventListener("DOMContentLoaded", function() {
     var signinBtn = document.getElementById("signin");
@@ -153,7 +64,7 @@ const Login = () => {
                       <div className="admin-login-page w-100">
                         <div className="card-body">
                           <h4 className="pb-2 text-center">Welcome back</h4>
-                          <form onSubmit={handleSubmit}>
+                          <form >
                             <div className="form-floating mb-3">
                               <div className="label-top black-color">
                                 Email Address / Login ID
@@ -199,18 +110,11 @@ const Login = () => {
                               </button>
                             </div>
                             <div className="form-check form-switch d-flex gap-2">
-                              <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                              <input className="form-check-input" type="checkbox" required role="switch" id="flexSwitchCheckDefault" />
                               <span>Remember Login ID</span>
                             </div>
 
-                            {/* For Signing the page */}
-                            {/* <div>
-                              {error && <div className={styles.error_msg}>{error}</div>}
-                              <button type="submit" className="btn btn-primary">
-                                Sign In
-                              </button>
-                            </div> */}
-
+                  
                             <div>
                               <a href="#" className="btn btn-primary py-2" id="signin">
                                 Sign In

@@ -13,6 +13,11 @@ const Header = () => {
     const [dropDownmenuItems, setDropDownMenuItems] = useState([]);
     const [matchedParentIds, setMatchedParentIds] = useState([]);
 
+    const [homeagentProfile, setHomeagentProfile] = useState('');
+    const [homelogo, setHomelogo] = useState('');
+
+    
+
   //   const fetchData = async (e) => {
   //   const data = await apiService.homeScreenShowHide({ value: 1 });
   //   console.log(data.homeScreenShowHide);
@@ -37,6 +42,8 @@ const Header = () => {
     const data = await apiService.homeScreenShowHide({ value: 1 });
     // console.log(data.homeScreenShowHide);
     setHomeScreenShowHide(data.homeScreenShowHide);
+    setHomeagentProfile(data.agentProfile.currentBalance);
+    setHomelogo(data.agentProfile.logoPath);
 
     const desiredNames = ['SETTINGS', 'OPS', 'User Management', 'FIN'];
 
@@ -106,7 +113,7 @@ const Header = () => {
                                     </ul>*/}
 
                                 <ul>
-                              <li className="hide_mobile"> <a href="#">My Wallet <span>USD 190.00</span></a>  </li>
+                              <li className="hide_mobile"> <a href="#">My Wallet <span>USD {homeagentProfile}</span></a>  </li>
                                 {homeScreenShowHide.find(item => item.text === "SHOW CONTACT" && item.show) && (
                               <li className="hide_mobile"> <a href="#">Contact Sales</a>  </li>
                               )}
@@ -143,7 +150,7 @@ const Header = () => {
           <div className="col-6 col-md-6 col-lg-2">
             <a className="navbar_brand" href="/login">
 
-              <img className="img-fluid" src="/imgs/logo.png"/>
+              <img className="img-fluid" src={homelogo} />
 
             </a>
           </div>
