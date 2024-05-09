@@ -1557,7 +1557,9 @@ div#banding {
     padding: 28px !important;
 }
 
-
+.form-floating>.form-control:not(:placeholder-shown)~label {
+    opacity: 0!important;
+}
 .hero-image::before {
     background: url("https://app.starbehaviors.com/Truck7.jpg");
     content: '';

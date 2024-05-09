@@ -39,6 +39,13 @@ const MySelectComponent = () => {
 
     const handleChange = (selectedOption) => {
         setSelectedOption(selectedOption);
+        console.log(selectedOption.label);
+        console.log(selectedOption.value);
+
+       localStorage.setItem('selectedOptionlabel', selectedOption.label);
+       localStorage.setItem('selectedOptionvalue', selectedOption.value);
+
+
         
     };
 
