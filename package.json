@@ -25,6 +25,7 @@
     "dompurify": "^3.0.6",
     "draft-js-import-html": "^1.4.1",
     "draftjs-to-html": "^0.9.1",
+    "hotel-datepicker": "^4.7.4",
     "jquery": "^3.7.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.5.0",
