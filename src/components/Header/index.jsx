@@ -4,9 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { faBell  } from '@fortawesome/free-solid-svg-icons';
-
-import * as apiService from "../../services";
 import TopHeader from './topheader';
+import * as apiService from "../../services";
 
 
 const Header = () => {
@@ -75,153 +74,154 @@ const Header = () => {
     return (
         <>
             <header>
-                     <TopHeader/>
+              <TopHeader/>
+             
 
                 <div className="headerMain">
-    <div className="navbar_lg">
-      <div className="container">
-        <div className="row align-items-center">
-          <div className="col-6 col-md-6 col-lg-2">
-            <a className="navbar_brand" href="/login">
+                <div className="navbar_lg">
+                  <div className="container">
+                    <div className="row align-items-center">
+                      <div className="col-6 col-md-6 col-lg-2">
+                        <a className="navbar_brand" href="/login">
 
-              <img className="img-fluid" src="/imgs/logo.png"/>
+                          <img className="img-fluid" src="/imgs/logo.png"/>
 
-            </a>
-          </div>
-          <div className="col-6 col-md-6 col-lg-10">
-            <a id="mobileBtn" className="navbar_toogle show_mobile">
-              <i className="fa-solid fa-bars fa-xmark"></i>
-            </a>
-            <div className="navbar_collapse hide_mobile">
-              <div className="row align-items-center ms-lg-auto">   
-                {/* <ul className="nav_links">
-                  <li className="nav_item"> 
-                    <div className="dropdown show">
-                      <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuSetting" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Settings
-                      </a>
-  
-                      <div className="dropdown-menu" aria-labelledby="dropdownMenuSetting">
-                        <a className="dropdown-item" href="#">Organization</a>
-                        <a className="dropdown-item" href="#">Flight</a>
-                        <a className="dropdown-item" href="#">Hotel</a>
+                        </a>
+                      </div>
+                      <div className="col-6 col-md-6 col-lg-10">
+                        <a id="mobileBtn" className="navbar_toogle show_mobile">
+                          <i className="fa-solid fa-bars fa-xmark"></i>
+                        </a>
+                        <div className="navbar_collapse hide_mobile">
+                          <div className="row align-items-center ms-lg-auto">   
+                            {/* <ul className="nav_links">
+                              <li className="nav_item"> 
+                                <div className="dropdown show">
+                                  <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuSetting" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Settings
+                                  </a>
+              
+                                  <div className="dropdown-menu" aria-labelledby="dropdownMenuSetting">
+                                    <a className="dropdown-item" href="#">Organization</a>
+                                    <a className="dropdown-item" href="#">Flight</a>
+                                    <a className="dropdown-item" href="#">Hotel</a>
+                                  </div>
+                                </div>
+                              </li>
+                              
+                              <li className="nav_item"> 
+                                <div className="dropdown show">
+                                  <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuOPS" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  OPS
+                                  </a>
+              
+                                  <div className="dropdown-menu" aria-labelledby="dropdownMenuOPS">
+                                    <a className="dropdown-item" href="#">Flight Search</a>
+                                    <a className="dropdown-item" href="#">Flight Bookings</a>
+                                    <a className="dropdown-item" href="#">Flight Sales Report</a>
+                                  </div>
+                                </div>
+
+                              
+                              
+                              
+                              
+                              </li>
+                              
+                              <li className="nav_item"> 
+                                <div className="dropdown show">
+                                  <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuManagement" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  User Management
+                                  </a>
+              
+                                  <div className="dropdown-menu" aria-labelledby="dropdownMenuManagement">
+                                    <a className="dropdown-item" href="#">Create User</a>
+                                    <a className="dropdown-item" href="#">Create Role</a>
+                                    <a className="dropdown-item" href="#">Change Password</a>
+                                  </div>
+                                </div>
+
+                              
+                              
+                              
+                              
+                              </li>
+
+                              <li className="nav_item"> 
+                                <div className="dropdown show">
+                                  <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuFin" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Fin
+                                  </a>
+              
+                                  <div className="dropdown-menu" aria-labelledby="dropdownMenuFin">
+                                    <a className="dropdown-item" href="#">Action</a>
+                                    <a className="dropdown-item" href="#">Another Action</a>
+                                    <a className="dropdown-item" href="#">Something else</a>
+                                  </div>
+                                </div>
+
+                              
+                              
+                              
+                              
+                              </li>
+
+
+                              <li className="nav_item ms-3"> 
+                                <button onclick="location.href='login.html';" className="loginbtn"> 
+                                  <img className="userpic" src="/imgs/user.jpg" alt="user" /> 
+                                  <FontAwesomeIcon icon={faSignOutAlt} />
+            Sign Out
+                                </button> 
+                                </li>
+                                                  
+
+
+
+                              </ul> */}
+                            <ul className="nav_links">
+                              {dropDownmenuItems
+                                // Filter out parent items
+                                .filter(item => item.parentId === null)
+                                .map(parentItem => (
+                                    <li key={parentItem.id} className="nav_item">
+                                        <div className="dropdown show">
+                                            <a className="dropdown-toggle" href="#" role="button" id={`dropdownMenu${parentItem.name}`} data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                {parentItem.name}
+                                            </a>
+                                            
+                                  <div className="dropdown-menu" aria-labelledby={`dropdownMenu${parentItem.name}`}>
+                                    {matchedParentIds
+                                      // Filter child items by parent id
+                                      .filter(childItem => childItem.parentId === parentItem.id)
+                                      .map(childItem => (
+                                          <a key={childItem.id} className="dropdown-item" href="#">
+                                              {childItem.pageName}
+                                          </a>
+                                    ))}
+                                  </div>
+                                </div>
+                                </li>
+                              ))}
+                                <li className="nav_item ms-3"> 
+                                  <button onclick="location.href='login.html';" className="loginbtn"> 
+                                    <img className="userpic" src="/imgs/user.jpg" alt="user" /> 
+                                    <FontAwesomeIcon icon={faSignOutAlt} />
+                                    Sign Out
+                                  </button> 
+                                </li>
+                            </ul>
+
+
+
+
+
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </li>
-                  
-                  <li className="nav_item"> 
-                    <div className="dropdown show">
-                      <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuOPS" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      OPS
-                      </a>
-  
-                      <div className="dropdown-menu" aria-labelledby="dropdownMenuOPS">
-                        <a className="dropdown-item" href="#">Flight Search</a>
-                        <a className="dropdown-item" href="#">Flight Bookings</a>
-                        <a className="dropdown-item" href="#">Flight Sales Report</a>
-                      </div>
-                    </div>
-
-                  
-                  
-                  
-                  
-                  </li>
-                  
-                  <li className="nav_item"> 
-                    <div className="dropdown show">
-                      <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuManagement" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      User Management
-                      </a>
-  
-                      <div className="dropdown-menu" aria-labelledby="dropdownMenuManagement">
-                        <a className="dropdown-item" href="#">Create User</a>
-                        <a className="dropdown-item" href="#">Create Role</a>
-                        <a className="dropdown-item" href="#">Change Password</a>
-                      </div>
-                    </div>
-
-                  
-                  
-                  
-                  
-                  </li>
-
-                  <li className="nav_item"> 
-                    <div className="dropdown show">
-                      <a className="dropdown-toggle" href="#" role="button" id="dropdownMenuFin" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Fin
-                      </a>
-  
-                      <div className="dropdown-menu" aria-labelledby="dropdownMenuFin">
-                        <a className="dropdown-item" href="#">Action</a>
-                        <a className="dropdown-item" href="#">Another Action</a>
-                        <a className="dropdown-item" href="#">Something else</a>
-                      </div>
-                    </div>
-
-                  
-                  
-                  
-                  
-                  </li>
-
-
-                  <li className="nav_item ms-3"> 
-                    <button onclick="location.href='login.html';" className="loginbtn"> 
-                      <img className="userpic" src="/imgs/user.jpg" alt="user" /> 
-                      <FontAwesomeIcon icon={faSignOutAlt} />
- Sign Out
-                    </button> 
-                    </li>
-                                      
-
-
-
-                  </ul> */}
-                <ul className="nav_links">
-                  {dropDownmenuItems
-                    // Filter out parent items
-                    .filter(item => item.parentId === null)
-                    .map(parentItem => (
-                        <li key={parentItem.id} className="nav_item">
-                            <div className="dropdown show">
-                                <a className="dropdown-toggle" href="#" role="button" id={`dropdownMenu${parentItem.name}`} data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    {parentItem.name}
-                                </a>
-                                
-                      <div className="dropdown-menu" aria-labelledby={`dropdownMenu${parentItem.name}`}>
-                        {matchedParentIds
-                          // Filter child items by parent id
-                          .filter(childItem => childItem.parentId === parentItem.id)
-                          .map(childItem => (
-                              <a key={childItem.id} className="dropdown-item" href="#">
-                                  {childItem.pageName}
-                              </a>
-                        ))}
-                      </div>
-                     </div>
-                    </li>
-                  ))}
-                    <li className="nav_item ms-3"> 
-                      <button onclick="location.href='login.html';" className="loginbtn"> 
-                        <img className="userpic" src="/imgs/user.jpg" alt="user" /> 
-                        <FontAwesomeIcon icon={faSignOutAlt} />
-                        Sign Out
-                      </button> 
-                    </li>
-                </ul>
-
-
-
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+                  </div>
+                </div>
 
 
   </div>

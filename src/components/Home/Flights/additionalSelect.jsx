@@ -4,8 +4,7 @@ import * as apiService from "../../../services";
 import $ from 'jquery';
 
 const MySelectComponent = () => {
-
-    const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOptions, setSelectedOptions] = useState([]); // State for selected options
     const [oneWaySearchData, setOneWaySearchData] = useState([]);
 
     const fetchDataOneWaySearch = async () => {
@@ -17,36 +16,9 @@ const MySelectComponent = () => {
         fetchDataOneWaySearch();
     }, []);
 
-    // useEffect(() => {
-    //     $(document).ready(function () {
-    //         // Event handler when .srchCol is clicked
-    //         $(".srchCol").click(function () {
-    //             $(this).find(".select2").css({
-    //                 opacity: 1,
-    //                 top: "50px" // Set top position to 50px
-    //             }); // Set opacity to 1 for .select2 within clicked .srchCol
-    //         });
-
-    //         // Event handler when document is clicked
-    //         $(document).click(function (event) {
-    //             // Check if the clicked element is not within .srchCol
-    //             if (!$(event.target).closest('.srchCol').length) {
-    //                 $(".select2").css("opacity", 0); // Set opacity to 0 for all .select2 elements
-    //             }
-    //         });
-    //     });
-    // }, []);
-
-    const handleChange = (selectedOption) => {
-        setSelectedOption(selectedOption);
-        console.log(selectedOption.label);
-        console.log(selectedOption.value);
-
-       localStorage.setItem('selectedOptionlabel', selectedOption.label);
-       localStorage.setItem('selectedOptionvalue', selectedOption.value);
-
-
-        
+    const handleChange = (selectedOptions) => {
+        setSelectedOptions(selectedOptions);
+        console.log(selectedOptions);
     };
 
     const formatState = (state) => {
@@ -61,12 +33,13 @@ const MySelectComponent = () => {
     };
 
     return (
-        <div className='select2'>
+        <div className='additionalSelect'>
             <Select
-                value={selectedOption}
+                value={selectedOptions}
                 onChange={handleChange}
-                 options={oneWaySearchData.map(item => ({ value: item.airportCode, label: item.airportName + ' ' +item.cityName + ' ' + item.countryName }))}
+                options={oneWaySearchData.map(item => ({ value: item.code, label: item.name }))}
                 formatOptionLabel={formatState}
+                isMulti // Enable multi-select
             />
         </div>
     );

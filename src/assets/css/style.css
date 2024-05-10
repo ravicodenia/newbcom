@@ -127,6 +127,7 @@ button:hover {
     color: #ffffffc2;
     font-weight: 400;
     padding: 0;
+    min-width: 20px;
 }
 
 .MuiMenu-list td, .MuiMenu-list th {
@@ -685,9 +686,10 @@ button.subscription-submit img {
 }
 
 span.notification svg {
-    font-size: 15px;
-    padding-right: 2px;
-    padding-top: 4px;
+    width: 12px;
+    margin-right: 2px;
+    fill: #fff;
+    margin-top: -2px;
 }
 
 section.login-sec.p-4 .nav {
@@ -737,6 +739,37 @@ section.login-sec.p-4 .nav {
     position: absolute;
     right: 0;
     height: 50%;
+}
+
+.notification-div a {
+    font-size: 12px;
+    color: #f3ab3b!important;
+    padding: 0!important;
+    text-decoration: none!important;
+    border-bottom: 1px solid #c5c7c8;
+    padding-bottom: 10px!important;
+}
+
+.notification-div li {
+    padding-bottom: 0;
+    padding-top: 3px;
+}
+
+.MuiPaper-root {
+    margin-top: 15px;
+}
+
+.headerMini .topLinks ul li button:hover {
+    color: #f3ab3b;
+}
+
+.notification-div a .description {
+    color: #616161;
+    text-transform: none;
+}
+
+.notification-div a div {
+    margin: 0;
 }
 
 .home-sec li.nav-item .nav-link.active::after{
@@ -1305,11 +1338,7 @@ a, span, div h1, h2 , h3, h4, h5, h6, button,input, select, textarea{
     font-family: "Montserrat", sans-serif!important;
   }
 
-  span.notification svg {
-    width: 12px;
-    margin-right: 4px;
-    fill: #fff;
-}
+  
 
 .css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
     color: #fff!important;

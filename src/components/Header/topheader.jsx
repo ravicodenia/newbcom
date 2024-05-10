@@ -121,12 +121,24 @@ const handleBankClose = () => {
     setBankAnchorEl(null);
 };
 
+
+// State and event handlers for Notification dropdown menu
+const [notifyAnchorEl, setNotifyAnchorEl] = useState(null);
+const isNotifyOpen = Boolean(notifyAnchorEl);
+
+const handleNotifyClick = (event) => {
+    setNotifyAnchorEl(event.currentTarget);
+};
+
+const handleNotifyClose = () => {
+    setNotifyAnchorEl(null);
+};
   return (
     <div>
         <div className="headerMini">
                     <div className="container">
                         <div className="row">
-                            <div className="col-8 col-lg-6 col-md-6 d-flex">
+                            <div className="col-12 col-lg-4 col-md-4 d-flex">
                                 <div className="switchLanguage">
                                     <div className="language-menu">
                                         <div className="select-wrapper position-relative">
@@ -145,7 +157,7 @@ const handleBankClose = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-4 col-lg-6 col-md-6">
+                            <div className="col-12 col-lg-8 col-md-8">
                                 <div className="topLinks">
                                     {/*<ul>
                                         <li className="hide_mobile"> <a href="#">My Wallet</a>  </li>
@@ -179,18 +191,16 @@ const handleBankClose = () => {
                                         onClose={handleWalletClose}
                                         MenuListProps={{ 'aria-labelledby': 'wallet-button' }}
                                     >
-                                        <MenuItem>
-                                        <table className="m-0">
+                                        <table className="mx-2 my-0">
                                             <tr>
                                             <th>Profile Credit:</th>
                                             <td>USD 0</td>
                                             </tr>
                                             <tr>
-                                            <td>Wallet Balance:</td>
+                                            <th>Wallet Balance:</th>
                                             <td>USD 9999.00</td>
                                             </tr>
                                         </table>
-                                        </MenuItem>
                                     </Menu>
                                 </li>
 
@@ -370,13 +380,49 @@ const handleBankClose = () => {
                                 </Menu>
                             </li>
                               )}
-                              <li>
-                                <a href="#">
-                                  <span className="notification">
-                                    <FontAwesomeIcon icon={faBell} />
+                              <li className="">
+
+                                    <Button
+                                        id="notification-button"
+                                        aria-controls={isWalletOpen ? 'notification-menu' : undefined}
+                                        aria-haspopup="true"
+                                        aria-expanded={isNotifyOpen ? 'true' : undefined}
+                                        onClick={handleNotifyClick}
+                                    >
+                                    <span className="notification">
+
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M224 0c-17.7 0-32 14.3-32 32V51.2C119 66 64 130.6 64 208v25.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416H424c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4V208c0-77.4-55-142-128-156.8V32c0-17.7-14.3-32-32-32zm0 96c61.9 0 112 50.1 112 112v25.4c0 47.9 13.9 94.6 39.7 134.6H72.3C98.1 328 112 281.3 112 233.4V208c0-61.9 50.1-112 112-112zm64 352H224 160c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z"/></svg>
                                     <span name="notification" className="nc">12</span>
-                                  </span>
-                                </a>
+                                    </span>
+
+                                    </Button>
+                                    <Menu className="notification-div"
+                                        id="wallet-menu"
+                                        anchorEl={notifyAnchorEl}
+                                        open={isNotifyOpen}
+                                        onClose={handleNotifyClose}
+                                        MenuListProps={{ 'aria-labelledby': 'notification-button' }}
+                                    >
+                                        <MenuItem>
+                                        <a href="#">
+                                            <div className="title">You got free credit! </div>
+                                            <div className="description">We have exiciting offers for you. </div>
+                                        </a>
+                                        </MenuItem>
+                                        <MenuItem>
+                                        <a href="#">
+                                            <div className="title">You got free credit! </div>
+                                            <div className="description">We have exiciting offers for you. </div>
+                                        </a>
+                                        </MenuItem>
+                                        <MenuItem>
+                                        <a href="#">
+                                            <div className="title">You got free credit! </div>
+                                            <div className="description">We have exiciting offers for you. </div>
+                                        </a>
+                                        </MenuItem>
+
+                                    </Menu>
                               </li>
                             </ul>
 
