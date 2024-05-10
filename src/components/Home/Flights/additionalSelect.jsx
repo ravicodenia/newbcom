@@ -8,7 +8,7 @@ const MySelectComponent = () => {
     const [oneWaySearchData, setOneWaySearchData] = useState([]);
 
     const fetchDataOneWaySearch = async () => {
-        const data = await apiService.OneWaySearch({});
+        const data = await apiService.OneWaySearchnew({});
         setOneWaySearchData(data); // Assuming data is an array of objects
     };
 

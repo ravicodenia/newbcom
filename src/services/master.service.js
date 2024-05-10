@@ -57,6 +57,29 @@ export const homeBooking = async ({ value }) => {
 
 export const OneWaySearch = async () => {
   try {
+    const url =  `https://bcom-services.pierofcloudtech.com/api/Airport/GetAirportsList`;
+
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+    return null; // Or handle the error appropriately
+  }
+};
+
+export const OneWaySearchnew = async () => {
+  try {
     const url =  `https://bcom-services.pierofcloudtech.com/api/Airline/GetAirlinesList`;
 
     const response = await fetch(url, {
