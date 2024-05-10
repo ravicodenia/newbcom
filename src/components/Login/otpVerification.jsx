@@ -70,6 +70,7 @@ const OTPverification = () => {
 
   const resendBtn = (e) => {
     e.preventDefault();
+    setUsername(localStorage.getItem("username"));
 
     fetchDataResendOtp();
   };
@@ -105,7 +106,7 @@ const OTPverification = () => {
                   <div className="mb-1 text-muted">Didn't recieve OTP code? </div>
                   <div className="resendOTP">
                     {" "}
-                    <button onClick={resendBtn}>Resend Code </button>{" "}
+                    <a href="#" onClick={resendBtn}>Resend Code </a>{" "}
                     <p>{sendmsg}</p>
                   </div>
 
