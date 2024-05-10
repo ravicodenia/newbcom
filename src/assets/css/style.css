@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 .editorClassName.rdw-editor-main::-webkit-scrollbar {
     display: none;
 }
@@ -301,8 +304,9 @@ li.nav-item .nav-link.active, li.nav-item .nav-link {
     min-width: 176px;
     text-align: center;
     color: #fff;
-    font-weight: 400;
-    font-size: 14px;
+    font-size: 16px !important;
+    font-weight: 500 !important;
+    letter-spacing: 1.4px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -633,7 +637,7 @@ button.subscription-submit img {
     display: inline-block;
     padding: 1rem;
     color: #000;
-    font-size: 0.9rem;
+    font-size: 14px;
     text-transform: uppercase;
     font-weight: 400;
     text-decoration: none;
@@ -709,7 +713,7 @@ section.login-sec.p-4 .nav {
 
 .home-sec a.nav-link:after {
     content: '';
-    background: #173540;
+    background: #1735403b;
     width: 0.5px;
     position: absolute;
     right: 0;
@@ -806,7 +810,7 @@ section.login-sec.p-4 .nav {
 .radBtn span label {
     font-size: 12px;
     font-weight: 400;
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin:0;
 }
 
@@ -829,8 +833,9 @@ section.login-sec.p-4 .nav {
     border: 1px solid #173540;
     padding: 6px;
     text-align: center;
-    padding: 2px !important;
-    min-width: 70px;
+    padding: 2px 10px !important;
+    font-size: 12.5px;
+    font-weight: 500;
 }
  
 
@@ -866,9 +871,13 @@ section.login-sec.p-4 .nav {
     font-size: 15px;
 }
 
+span.srchsml svg {
+    width: 10px;
+}
+
  .switch_destination svg{
-    width: 20px;
-    height: 20px
+    width: 15px;
+    height: 15px
  }
 
  .flightheadertbl {
@@ -876,11 +885,16 @@ section.login-sec.p-4 .nav {
     width: 100%;
 }
 
+.mb-1 span.srchsml {
+    font-size: 13px;
+}
+
  .flightheadertbl tr td {
     font-size: 11px;
     color: #2f2f2f;
     padding-bottom: 8px;
     position: relative;
+    text-align: left!important;
 }
 
 .flightheadertbl input {
@@ -892,9 +906,10 @@ section.login-sec.p-4 .nav {
     display: block;
     cursor: pointer;
     background-color: #ededed;
-    padding: 0.8rem 0 0.8rem 0.8rem;
-    min-height: 108px;
-    max-width: 237px;
+    padding: 0;
+    min-height: 96px;
+    max-width: 243px;
+    padding-left: 10px;
 }
 
 button.input-group-text {
@@ -904,6 +919,13 @@ button.input-group-text {
 
 button.input-group-text svg {
     fill: #fff;
+}
+
+span.srchsml.textTrim, .srchCon .srchRow .srchTitle {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .SearchForm .travelersFlight .input-group .input-group-text {
@@ -917,10 +939,37 @@ button.input-group-text svg {
 
 span.srchTitle svg {
     width: 24px;
+    margin-right: 5px;
+}
+
+.form-floating>.form-control:not(:placeholder-shown)~label {
+    display: none;
+}
+
+span.srchsml.textTrim {
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.multistop-sec .switch_destination {
+    top: 28px;
+}
+
+.multistop-sec .modifySearch {
+    max-height: 52px!important;
+    padding: 0;
+    margin: 0!important;
+}
+
+
+#div_flight_returncal span.srchTitle svg, #pickCalOneWay span.srchTitle svg {
+    width: 16px;
+    margin-right: 2px;
+    margin-top: -4px;
 }
 
  .srchCon .srchRow .srchTitle {
-    font-size: 1.4rem;
+    font-size: 18px;
     font-weight: 700;
 }
 
@@ -933,7 +982,7 @@ span.paxgroupico svg {
     display: none;
     position: absolute;
     width: 340px;
-    top: 140px;
+    top: 126px;
     left: 0;
     z-index: 100;
     background-color: #fff;
@@ -941,9 +990,10 @@ span.paxgroupico svg {
     padding: 1rem;
 }
 input#totalpaxflightinp {
-    width: 20px;
+    width: 17px;
     background: transparent;
     border: 0;
+    font-weight: 700;
 }
 
 .modifySearch svg {
@@ -1061,23 +1111,83 @@ a.deleteMulticityRow {
     display: none;
 }
 
-div#multishop-sec .row:last-child .deleteMulticityRow {
-    display: block;
+.multistop-sec .row:last-child .deleteMulticityRow {
+    display: block!important;
 }
 
+span.calendar-sec {
+    max-width: 93px!important;
+    width: 100%;
+    display: flex;
+}
+
+span.calendar-sec {
+    max-width: 93px!important;
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 30%;
+    transform: rotateZ(180deg);
+    opacity: 0;
+}
 
 .select2 {
     position: absolute;
-    top: 25px;
-    opacity: 0;
-    left: 9px;
+    top: 24px;
+    /* opacity: 0; */
+    left: 28px;
     width: 91%;
     background: transparent!important;
 }
 
-#recentsearch{
-    border: 3px solid #f2aa3b;
-    padding: 10px 0;
+.select2 .css-13cymwt-control, .css-t3ipsp-control {
+    background: transparent!important;
+    border: 0!important;
+    box-shadow: none!important;
+
+}
+
+.select2 .css-1u9des2-indicatorSeparator, .select2 .css-1xc3v61-indicatorContainer {
+    display: none!important;
+}
+
+.select2 .css-t3ipsp-control:hover {
+    border-color: transparent!important;
+    box-shadow: none!important;
+
+}
+
+.css-15lsz6c-indicatorContainer svg {
+    display: none!important;
+}
+
+.select2 .css-1dimb5e-singleValue span {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.select2 #react-select-3-placeholder, .select2 #react-select-5-placeholder, .select2 #react-select-7-placeholder, .select2 #react-select-9-placeholder  {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+}
+
+
+.travel-class input {
+    opacity: 0;
+    display: none;
+}
+
+.travel-class {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.addReturndate {
+    font-size: 13px;
 }
 
 #recentsearch .card-body {
@@ -1091,13 +1201,83 @@ div#multishop-sec .row:last-child .deleteMulticityRow {
     margin: 0 5px;
 }
 
-.active-radio {
-    background: #173540;
+button.btn.btn-primary.close_div_flightPax {
+    width: fit-content;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 0;
+}
+div#div_additional_flight_search .select2 {
+    left: 0;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    width: 100%;
+    top: 29px;
+}
+
+.travel-class {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.travel-class label {
+    padding: 2px 5px;
+    border: 1px solid #173540;
+    background: #fff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.active-radio, .default-radio {
+    background: #173540!important;
     color: #fff!important;
     border: 1px solid #173540;
     padding: 6px;
 }
+.travel-class label {
+    padding: 2px 5px;
+    border: 1px solid #173540;
+}
+.nav-link span svg {
+    position: absolute;
+    left: 50%;
+    bottom: -28%;
+    transform: translate(-50%, -0%);
+    margin: 0;
+    fill: #f3ab3b !important;
+    width: 26px!important;
+    height: 25px;
+}
 
+.nav-link span svg {
+    display: none;
+}
+
+.nav-link.active span svg {
+    display: block;
+}
+
+a, span, div h1, h2 , h3, h4, h5, h6, button,input, select, textarea{
+    font-family: "Montserrat", sans-serif!important;
+  }
+
+  span.notification svg {
+    width: 12px;
+    margin-right: 4px;
+    fill: #fff;
+}
+
+.css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
+    color: #fff!important;
+}
+
+.css-byenzh-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track {
+    background-color: #f3ab3b!important;
+    opacity: 1!important;
+}
 @media(max-width:990px){
     li.hide_mobile {
         display: none!important;
@@ -1557,9 +1737,7 @@ div#banding {
     padding: 28px !important;
 }
 
-.form-floating>.form-control:not(:placeholder-shown)~label {
-    opacity: 0!important;
-}
+
 .hero-image::before {
     background: url("https://app.starbehaviors.com/Truck7.jpg");
     content: '';

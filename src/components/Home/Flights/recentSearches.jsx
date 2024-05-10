@@ -1,10 +1,23 @@
-import React, { useRef } from 'react';
+
+import React,{ useState,useEffect,useRef } from "react";
+import * as apiService from "../../../services";
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
 function RecentSearch() {
   const sliderRef = useRef(null);
+
+   const [homeScreenShowHide, setHomeScreenShowHide] = useState([]);
+
+    const fetchData = async (e) => {
+    const data = await apiService.homeScreenShowHide({ value: 1 });
+    console.log(data.homeScreenShowHide);
+    setHomeScreenShowHide(data.homeScreenShowHide);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const settings = {
     dots: true,
@@ -38,6 +51,8 @@ function RecentSearch() {
   ];
 
   return (
+    <div>
+      {homeScreenShowHide.find(item => item.text === "SHOW_RECENT_SEARCH" && item.show) && (
     <section className="recent-search"> 
       <div className="container">   
         <div className="row align-items-center mt-2">
@@ -97,6 +112,8 @@ function RecentSearch() {
         </div>
       </div>
     </section>
+    )}
+    </div>
   );
 }
 
