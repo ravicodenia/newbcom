@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
@@ -6,17 +6,81 @@ import { Icon } from '@iconify/react';
 import { API_BASE_URL } from '../../config/serverApiConfig';
 import OTPverification from "./otpVerification";
 import Footer from "../footer/index";
+import * as apiService from "../../services";
 
+ 
 
 
 const Login = () => {
-  const [data, setData] = useState({ user: "", password: "" });
+  const [logindata, setLoginData] = useState({ user: "", password: "" });
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [loginApiData,SetLoginApiData] = useState([]);
+
+  
   const navigate = useNavigate();
 
-  const handleChange = ({ currentTarget: input }) => {
-    setData({ ...data, [input.name]: input.value });
+  // -- default code --
+  // const handleChange = ({ currentTarget: input }) => {
+  //   setData({ ...data, [input.name]: input.value });
+  // };
+
+  // useEffect(() => {
+  //   // This effect will run when formData changes
+  //   // We need to check if both userName and password are not empty before fetching
+  //       fetchDataLoginAuth();
+  // }, [logindata]);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setLoginData({ ...logindata, [name]: value });  
+  };
+
+
+
+
+  const fetchDataLoginAuth = async () => {
+    try {
+      if (logindata.user.length <= 0  || logindata.password.length <= 0) {
+        setError('Username or password cannot be empty');
+        return; // Exit the function early if either field is empty
+      } else {
+        setError("")
+        const data = await apiService.loginAuth({
+          userName: logindata.user,
+          password: logindata.password
+        });
+        SetLoginApiData(data);
+        // console.log(data); // Example: printing data to console
+
+        console.log(data.error.message)
+        if (data.error.message === "OTP sent successfully to the email") {
+          localStorage.setItem("userid",data.data.userId);
+          localStorage.setItem("username",data.data.username);
+          localStorage.setItem("email",data.data.email);
+          document.querySelector(".nav-align-top").style.display = "none";
+          document.querySelector(".otpverification").style.display = "block";
+        }
+        else if (data.error.message === "Token generated successfully") {
+          window.location = "/Home";
+          // token store in local
+          localStorage.setItem("accessToken",data.data.accessToken);
+          localStorage.setItem("refreshToken",data.data.refreshToken);
+        }
+      }
+  
+      
+  } catch (error) {
+      console.error('Error:', error);
+  }
+  };
+
+  // submit btn fucntion
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Call fetchDataLoginAuth directly here
+    await fetchDataLoginAuth();
   };
 
 
@@ -24,15 +88,15 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
  
-  
+//   document.addEventListener("DOMContentLoaded", function() {
+//     var signinBtn = document.getElementById("signin");
+//     // signinBtn.addEventListener("click", function() {
+//     //     document.querySelector(".nav-align-top").style.display = "none";
+//     //     document.querySelector(".otpverification").style.display = "block";
+//     // });
+// });
 
-  document.addEventListener("DOMContentLoaded", function() {
-    var signinBtn = document.getElementById("signin");
-    signinBtn.addEventListener("click", function() {
-        document.querySelector(".nav-align-top").style.display = "none";
-        document.querySelector(".otpverification").style.display = "block";
-    });
-});
+
 
   return (
     <>
@@ -64,7 +128,7 @@ const Login = () => {
                       <div className="admin-login-page w-100">
                         <div className="card-body">
                           <h4 className="pb-2 text-center">Welcome back</h4>
-                          <form >
+                          <form onSubmit={handleSubmit}>
                             <div className="form-floating mb-3">
                               <div className="label-top black-color">
                                 Email Address / Login ID
@@ -72,10 +136,10 @@ const Login = () => {
                               <input
                                 id="emailAddress"
                                 className="form-control"
-                                type="email"
+                                type="text"
                                 name="user"
                                 onChange={handleChange}
-                                value={data.user}
+                                value={logindata.user}
                                 required
                                 placeholder="Email Address"
                               />
@@ -94,7 +158,7 @@ const Login = () => {
                                   type={showPassword ? "text" : "password"}
                                   name="password"
                                   onChange={handleChange}
-                                  value={data.password}
+                                  value={logindata.password}
                                   required
                                   placeholder="Password"
                                 />
@@ -116,9 +180,9 @@ const Login = () => {
 
                   
                             <div>
-                              <a href="#" className="btn btn-primary py-2" id="signin">
+                              <button  className="btn btn-primary py-2" id="signin" type="submit">
                                 Sign In
-                              </a>
+                              </button>
                             </div>
 
                             <div className="subscription-div pt-3">
