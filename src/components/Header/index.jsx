@@ -6,6 +6,7 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { faBell  } from '@fortawesome/free-solid-svg-icons';
 
 import * as apiService from "../../services";
+import TopHeader from './topheader';
 
 
 const Header = () => {
@@ -74,74 +75,7 @@ const Header = () => {
     return (
         <>
             <header>
-                <div className="headerMini">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-8 col-lg-6 col-md-6 d-flex">
-                                <div className="switchLanguage">
-                                    <div className="language-menu">
-                                        <div className="select-wrapper position-relative">
-                                            <select name="picklanguage" className="select">
-                                                <option selected="">English</option>
-                                                <option value="Spanish">Spanish</option>
-                                            </select>
-                                            <FontAwesomeIcon icon={faAngleDown } />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="switchTheme ms-2">
-                                    <div className="form-check form-switch">
-                                        <input className="form-check-input" type="checkbox" id="flexSwitchCheckChecked" />
-                                        <label className="form-check-label text-light" for="flexSwitchCheckChecked">DARK</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-4 col-lg-6 col-md-6">
-                                <div className="topLinks">
-                                    {/*<ul>
-                                        <li className="hide_mobile"> <a href="#">My Wallet</a>  </li>
-                                        <li className="hide_mobile"> <a href="#">Contact Sales</a>  </li>
-                                        <li className="hide_mobile"> <a href="#">Support</a>  </li>
-                                        <li className="hide_mobile"> <a href="#">Bank Details</a>  </li>
-                                        <li> <a href="#">
-                                            <span className="notification">                                            <FontAwesomeIcon icon={faBell } />
-
-                                                <span name="notification" className="nc">12
-                                                </span></span></a>
-
-                                        </li>
-                                    </ul>*/}
-
-                                <ul>
-                              <li className="hide_mobile"> <a href="#">My Wallet <span>USD {homeagentProfile}</span></a>  </li>
-                                {homeScreenShowHide.find(item => item.text === "SHOW CONTACT" && item.show) && (
-                              <li className="hide_mobile"> <a href="#">Contact Sales</a>  </li>
-                              )}
-                              {homeScreenShowHide.find(item => item.text === "SHOW SALES SUPPORT" && item.show) && (
-                              <li className="hide_mobile"> <a href="#">Support</a>  </li>
-                              )}
-                              {homeScreenShowHide.find(item => item.text === "SHOW BANK DETAILS" && item.show) && (
-                                <li className="hide_mobile"> <a href="#">Bank Details</a>  </li>
-                              )}
-                              <li>
-                                <a href="#">
-                                  <span className="notification">
-                                    <FontAwesomeIcon icon={faBell} />
-                                    <span name="notification" className="nc">12</span>
-                                  </span>
-                                </a>
-                              </li>
-                            </ul>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                </div>
+                     <TopHeader/>
 
                 <div className="headerMain">
     <div className="navbar_lg">

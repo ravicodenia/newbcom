@@ -73,7 +73,7 @@ table {
   font-family: Arial, sans-serif;
 }
 
-th, td {
+/* th, td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #ccc;
@@ -85,12 +85,12 @@ th {
 }
 
 tr {
-  background-color: #f2f2f2; /* Background color for even rows */
+  background-color: #f2f2f2; 
 }
 
 tr:nth-child(odd) {
-  background-color: #ffffff; /* Background color for odd rows */
-}
+  background-color: #ffffff; 
+} */
 
 /* CSS for table data cells */
 td {
@@ -115,6 +115,25 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
+    cursor: default!important;
+    background-color: transparent!important;
+}
+
+.headerMini .topLinks ul li button {
+    font-size: 12px;
+    color: #ffffffc2;
+    font-weight: 400;
+    padding: 0;
+}
+
+.MuiMenu-list td, .MuiMenu-list th {
+    font-size: 12px;
+    padding: 0;
+    padding-bottom: 5px;
+    padding-right: 5px;
 }
 
 /* Responsive layout */
@@ -667,7 +686,7 @@ button.subscription-submit img {
 
 span.notification svg {
     font-size: 15px;
-    padding-right: 4px;
+    padding-right: 2px;
     padding-top: 4px;
 }
 
@@ -767,7 +786,7 @@ section.login-sec.p-4 .nav {
 
 #recentsearch .card .card-body ul li h4 span, #recentsearch .card .card-body ul li .h4 span {
     font-weight: 400;
-    font-size: 1.4rem;
+    font-size: 20px;
     color: #000;
     margin-left: 8px!important;
 }
@@ -1135,9 +1154,20 @@ span.calendar-sec {
     position: absolute;
     top: 24px;
     /* opacity: 0; */
-    left: 28px;
+    left: 4px;
     width: 91%;
     background: transparent!important;
+}
+
+.css-1p3m7a8-multiValue, .css-1p3m7a8-multiValue .css-wsp0cs-MultiValueGeneric, .css-1p3m7a8-multiValue svg {
+    background: #f3ab3b!important;
+    color: #fff!important;
+    fill: white;
+}
+
+input:checked {
+    background-color: #f3ab3b!important;
+    border-color: #f3ab3b!important;
 }
 
 .select2 .css-13cymwt-control, .css-t3ipsp-control {
@@ -1193,6 +1223,17 @@ span.calendar-sec {
 #recentsearch .card-body {
     padding: 0 10px;
     padding-left: 16px;
+}
+
+#recentsearch {
+    border: solid 3px #f2aa3b;
+    padding: 10px 0px;
+}
+
+#recentsearch .card .card-body ul li p {
+    font-size: small;
+    margin-bottom: 0;
+    margin-left: 15px;
 }
 
 #recentsearch svg {
@@ -1278,6 +1319,39 @@ a, span, div h1, h2 , h3, h4, h5, h6, button,input, select, textarea{
     background-color: #f3ab3b!important;
     opacity: 1!important;
 }
+
+
+div#selectSuppliers span {
+    width: 45%;
+    display: flex;
+    gap: 3px;
+    float: left;
+    margin: 5px 0;
+}
+
+div#selectSuppliers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    display: none;
+    box-shadow: 0 0 6px 4px #00000026;
+    padding: 10px;
+    width: 349px;
+    position: absolute;
+    right: 0;
+    top: 46px;
+    z-index: 9999;
+    background: #ffff;
+    border-radius: 1px;
+}
+
+.selectsuppliers {
+    border: 1px solid #ced4da;
+    padding: 5px;
+    border-radius: 6px;
+}
+
 @media(max-width:990px){
     li.hide_mobile {
         display: none!important;
