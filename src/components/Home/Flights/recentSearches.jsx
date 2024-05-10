@@ -36,19 +36,47 @@ function RecentSearch() {
   };
 
   // Array of objects representing each slide's data
-  const slidesData = [
-    { destination1: 'DAR ',destination2:'ZNZ', date: '6 Oct - 19 Oct (1 Adult)' },
-    { destination1: 'DAR ',destination2:'ZNZ', date: '6 Oct - 19 Oct (1 Child)' },
-    { destination1: 'DAR ',destination2:'ZNZ', date: '6 Oct - 19 Oct (1 Adult)' },
-    { destination1: 'DAR ',destination2:'ZNZ', date: '6 Oct - 19 Oct (1 Child)' },
-    { destination1: 'DAR ',destination2:'ZNZ', date: '6 Oct - 19 Oct (1 Adult)' },
-    { destination1: 'DAR ',destination2:'ZNZ', date: '6 Oct - 19 Oct (1 Child)' },
-    { destination1: 'DAR ',destination2:'ZNZ', date: '6 Oct - 19 Oct (1 Adult)' },
-    { destination1: 'DAR ',destination2:'ZNZ', date: '6 Oct - 19 Oct (1 Child)' },
+  // const slidesData = [
+  //   { destination1: 'DAR ',destination2:'ZNZ', date: '6 Oct - 19 Oct (1 Adult)' },
+  //   { destination1: 'DAR ',destination2:'ZNZ', date: '6 Oct - 19 Oct (1 Child)' },
+  //   { destination1: 'DAR ',destination2:'ZNZ', date: '6 Oct - 19 Oct (1 Adult)' },
+  //   { destination1: 'DAR ',destination2:'ZNZ', date: '6 Oct - 19 Oct (1 Child)' },
+  //   { destination1: 'DAR ',destination2:'ZNZ', date: '6 Oct - 19 Oct (1 Adult)' },
+  //   { destination1: 'DAR ',destination2:'ZNZ', date: '6 Oct - 19 Oct (1 Child)' },
+  //   { destination1: 'DAR ',destination2:'ZNZ', date: '6 Oct - 19 Oct (1 Adult)' },
+  //   { destination1: 'DAR ',destination2:'ZNZ', date: '6 Oct - 19 Oct (1 Child)' },
 
 
 
-  ];
+  // ];
+
+  const [slidesData, setSlidesData] = useState([]);
+
+  useEffect(() => {
+    // Fetch data from API
+    fetch('https://bcom-services.pierofcloudtech.com/api/Home/GetRecentSearchesByAgentId?agentId=1')
+      .then(response => response.json())
+      .then(data => {
+        // Transform API response to the desired format
+        const transformedData = data.map(entry => {
+          const adultString = `${entry.adult} Adult`;
+          const childString = entry.child > 0 ? `${entry.child} Child` : '';
+          const passengerString = [adultString, childString].filter(Boolean).join(' - ');
+
+          return {
+            destination1: entry.flyingFrom,
+            destination2: entry.flyingTo,
+            date: `${entry.departure} - ${entry.return} (${passengerString})`,
+            searchDate: entry.searchDate
+          };
+        });
+        // Set the transformed data to state
+        setSlidesData(transformedData);
+      })
+      .catch(error => {
+        console.error('Error fetching API data:', error);
+      });
+  }, []); // Run this effect only once, on component mount
 
   return (
     <div>
@@ -98,6 +126,7 @@ function RecentSearch() {
                                   </div>
                                 </h4>
                                 <p>{slide.date}</p>
+                                <p>{slide.searchDate}</p>
                               </li>
                             </ul>
                           </div>
