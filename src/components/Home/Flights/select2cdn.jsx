@@ -65,7 +65,7 @@ const MySelectComponent = () => {
             <Select
                 value={selectedOption}
                 onChange={handleChange}
-                options={oneWaySearchData.map(item => ({ value: item.value, label: item.text }))}
+                options={oneWaySearchData.map(item => ({ value: item.code, label: item.name }))}
                 formatOptionLabel={formatState}
             />
         </div>

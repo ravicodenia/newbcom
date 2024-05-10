@@ -57,7 +57,7 @@ export const homeBooking = async ({ value }) => {
 
 export const OneWaySearch = async () => {
   try {
-    const url =  `https://bcom-services.pierofcloudtech.com/api/Home/GetAirports`;
+    const url =  `https://bcom-services.pierofcloudtech.com/api/Airline/GetAirlinesList`;
 
     const response = await fetch(url, {
       method: 'GET',
