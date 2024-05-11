@@ -6,9 +6,15 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { faBell  } from '@fortawesome/free-solid-svg-icons';
 import TopHeader from './topheader';
 import * as apiService from "../../services";
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import ChangePassword from './changePassword';
+import ViewProfile from './viewProfile';
 
 
 const Header = () => {
+
     const [homeScreenShowHide, setHomeScreenShowHide] = useState([]);
     const [dropDownmenuItems, setDropDownMenuItems] = useState([]);
     const [matchedParentIds, setMatchedParentIds] = useState([]);
@@ -69,6 +75,16 @@ const Header = () => {
     fetchData();
     // console.log(dropDownmenuItems);
   }, []);
+
+
+   const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
  
 
     return (
@@ -197,18 +213,79 @@ const Header = () => {
                                       .map(childItem => (
                                           <a key={childItem.id} className="dropdown-item" href="#">
                                               {childItem.pageName}
+                                              
                                           </a>
+                                          
                                     ))}
+
                                   </div>
                                 </div>
                                 </li>
                               ))}
-                                <li className="nav_item ms-3"> 
+
+                                {/* <li className="nav_item ms-3"> 
                                   <button onclick="location.href='login.html';" className="loginbtn"> 
                                     <img className="userpic" src="/imgs/user.jpg" alt="user" /> 
                                     <FontAwesomeIcon icon={faSignOutAlt} />
                                     Sign Out
                                   </button> 
+
+                                  
+                                </li> */}
+
+                                <li className="nav_item ms-3"> 
+                                  <Button className="loginbtn">
+                                      <img className="userpic" src="/imgs/user.jpg" alt="user"
+                                       id="demo-positioned-button"
+                                       aria-controls={open ? 'demo-positioned-menu' : undefined}
+                                       aria-haspopup="true"
+                                       aria-expanded={open ? 'true' : undefined}
+                                       onClick={handleClick}
+                                      
+                                      />
+                                    <a href="/login">
+                                    <FontAwesomeIcon icon={faSignOutAlt} className="me-1" />
+
+                                      Sign Out</a>
+                                        </Button>
+                                        <Menu
+                                          id="top-nav-menu"
+                                          aria-labelledby="demo-positioned-button"
+                                          anchorEl={anchorEl}
+                                          open={open}
+                                          onClose={handleClose}
+                                          anchorOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'left',
+                                          }}
+                                          transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'left',
+                                          }}
+                                        >
+                                          <MenuItem>
+                                          <span>Company: BCom</span>
+                                          </MenuItem>
+                                          <MenuItem>
+                                          <span>
+                                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
+                                          Dubai, UAE
+                                          </span>
+                                          </MenuItem>
+                                          <MenuItem>
+                                          <a href="#" id="viewProfile">View Profile</a>
+                                          <ViewProfile/>
+                                          </MenuItem>
+                                          <MenuItem>
+                                         <a href="#" id="changePassword">Change Password</a>
+                                          <ChangePassword/>
+
+                                          </MenuItem>
+                                          <MenuItem>
+                                          <a href="#">Help</a>
+                                          </MenuItem>
+                                          </Menu>
+                                  
                                 </li>
                             </ul>
 
