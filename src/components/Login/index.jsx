@@ -40,6 +40,7 @@ const Login = () => {
 
 
   const fetchDataLoginAuth = async () => {
+
     try {
       if (logindata.user.length <= 0  || logindata.password.length <= 0) {
         setError('Username or password cannot be empty');
@@ -78,6 +79,7 @@ const Login = () => {
   // submit btn fucntion
   const handleSubmit = async (e) => {
     e.preventDefault();
+    document.querySelector(".otpverification").style.display = "block";
 
     // Call fetchDataLoginAuth directly here
     await fetchDataLoginAuth();
@@ -174,7 +176,7 @@ const Login = () => {
                               </button>
                             </div>
                             <div className="form-check form-switch d-flex gap-2">
-                              <input className="form-check-input" type="checkbox" required role="switch" id="flexSwitchCheckDefault" />
+                              <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
                               <span>Remember Login ID</span>
                             </div>
 

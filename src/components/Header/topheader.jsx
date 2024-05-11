@@ -19,27 +19,53 @@ export default function BasicMenu() {
     const [homeagentProfile, setHomeagentProfile] = useState('');
     const [homelogo, setHomelogo] = useState('');
 
+     const [notificationData, setNotificationData] = useState([]);
+    const [notificationIds, setNotificationIds] = useState({agentid: 1, userid: 1});
+
+   
+    const [supportDetails,setSupportDetails]= useState('');
+     const [bankDetails,setBankDetails]= useState('');
+
     
 
-  //   const fetchData = async (e) => {
-  //   const data = await apiService.homeScreenShowHide({ value: 1 });
-  //   console.log(data.homeScreenShowHide);
-  //   setHomeScreenShowHide(data.homeScreenShowHide);
+const fetchBankDetails = async () => {
+    try {
+      const response = await apiService.GetBankDetailsByAgentId({ value: 1 });
 
-  //   const desiredNames = ['SETTINGS', 'OPS', 'User Management', 'FIN'];
-  //   const filteredData = data.menuItems.filter(item => desiredNames.includes(item.name));
+      const parser = new DOMParser();
+      const htmlDoc = parser.parseFromString(response.data, 'text/html');
+      const rows = Array.from(htmlDoc.querySelectorAll('br')).map(br => br.previousSibling.textContent.trim().replaceAll("&nbsp;", ''));
 
-  //   // Get the IDs of the filtered data
-  //   const filteredIds = filteredData.map(item => item.id);
+      setBankDetails(rows);
 
-  //   // Filter again based on matching parentId with filteredIds
-  //   const finalFilteredData = data.menuItems.filter(item => {
-  //   return desiredNames.includes(item.name) || filteredIds.includes(item.parentId);
-  //   });
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle error
+    }
+  };
 
-  //   console.log('filteredData',finalFilteredData);
-  //   setDropDownMenuItems(filteredData);
-  // };
+
+const fetchSupportDetails = async () => {
+  try {
+   
+    const responsenew = await apiService.GetSupportDetailsByAgentId({ value: 1 });
+
+      const parser = new DOMParser();
+      const htmlDoc = parser.parseFromString(responsenew.data, 'text/html');
+      const rows = Array.from(htmlDoc.querySelectorAll('br')).map(br => br.previousSibling.textContent.trim().replaceAll("&nbsp;", ''));
+
+
+  
+    setSupportDetails(rows);
+
+
+  } catch (error) {
+    console.error('Error:', error);
+    // Handle error
+  }
+};
+
+
 
   const fetchData = async (e) => {
     const data = await apiService.homeScreenShowHide({ value: 1 });
@@ -68,8 +94,27 @@ export default function BasicMenu() {
 };
 
 
+   const fetchDataNotification = async () => {
+    try {
+      const data = await apiService.notification({
+        agentId: notificationIds.agentid,
+        userId: notificationIds.userid
+      });
+      console.log("notification",data);
+      setNotificationData(data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+    
+};
+
+
+
   useEffect(() => {
     fetchData();
+    fetchBankDetails();
+    fetchSupportDetails();
+    fetchDataNotification();
     // console.log(dropDownmenuItems);
   }, []);
 
@@ -293,25 +338,19 @@ const handleNotifyClose = () => {
                               >
                                 <table style={{margin:'0 10px'}}>
                                 <tbody>
-                                    <tr>
-                                    <th scope="row">Landphone </th>
-                                    <td>  : +91 9305909271</td>
-                                    </tr>
+                               
 
-                                    <tr>
-                                    <th scope="row">Mobile after hours </th>
-                                    <td>  : +91 9305909272</td>
-                                    </tr>
-
-                                    <tr>
-                                    <th scope="row">Support eMail </th>
-                                    <td> : support@bcom.com</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">Topup eMail </th>
-                                    <td> : topup@bcom.com </td>
-                                    </tr>
-
+                                {supportDetails.map((row, index) => (
+                                  <tr key={index}>
+                                    {/* Splitting each row into cells */}
+                                    {row.replaceAll(/&nbsp;/g, '').split(':').map((cell, cellIndex) => (
+                                      <td key={cellIndex} className={cellIndex === 0 ? 'bold' : ''}>
+                                        {cellIndex === 0 ? <strong>{cell}</strong> : cell}
+                                      </td>
+                                    ))}
+                                  </tr>
+                                ))}
+                                   
                                 </tbody>
                                 </table>
                                 
@@ -339,42 +378,18 @@ const handleNotifyClose = () => {
                                 MenuListProps={{ 'aria-labelledby': 'bank-button' }}
                                 >
                                  <table style={{margin:'0 10px'}}> 
-                                        <tbody>
-                                            </tbody><thead>
-                                            <tr>
-                                                <th>Country</th>
-                                                <th>Chile</th>
-                                            </tr>
-                                            </thead>
-
-                                            <tbody><tr>
-                                            <td>Bank name 
-                                            </td><td>: RBC</td>
-                                            </tr>
-
-                                                                    
-                                            <tr>
-                                            <td>Account name 
-                                            </td><td>: Bcom Inc.</td>
-                                            </tr>
-
-                                            <tr>
-                                            <td>Account number 
-                                            </td><td>: 09394847393812</td>
-                                            </tr>
-
-                                            
-                                            <tr>
-                                            <td>SWIFT CODE 
-                                            </td><td>: UBHTYYU</td>
-                                            </tr>
-                                
-                                            <tr>
-                                            <td>Currency 
-                                            </td><td>: USD</td>
-                                            </tr>
-
-                                        </tbody>
+                                         <tbody>
+                                        {bankDetails.map((row, index) => (
+                                              <tr key={index}>
+                                                {/* Splitting each row into cells */}
+                                                {row.replaceAll(/&nbsp;/g, '').split(':').map((cell, cellIndex) => (
+                                                  <td key={cellIndex} className={cellIndex === 0 ? 'bold' : ''}>
+                                                    {cellIndex === 0 ? <strong>{cell}</strong> : cell}
+                                                  </td>
+                                                ))}
+                                              </tr>
+                                            ))}
+                                            </tbody>
                                         </table>
                                   
                                 </Menu>
@@ -403,25 +418,16 @@ const handleNotifyClose = () => {
                                         onClose={handleNotifyClose}
                                         MenuListProps={{ 'aria-labelledby': 'notification-button' }}
                                     >
-                                        <MenuItem>
-                                        <a href="#">
-                                            <div className="title">You got free credit! </div>
-                                            <div className="description">We have exiciting offers for you. </div>
-                                        </a>
-                                        </MenuItem>
-                                        <MenuItem>
-                                        <a href="#">
-                                            <div className="title">You got free credit! </div>
-                                            <div className="description">We have exiciting offers for you. </div>
-                                        </a>
-                                        </MenuItem>
-                                        <MenuItem>
-                                        <a href="#">
-                                            <div className="title">You got free credit! </div>
-                                            <div className="description">We have exiciting offers for you. </div>
-                                        </a>
-                                        </MenuItem>
-
+                                     {notificationData.map(notification => 
+                                            !notification.readStatus && (
+                                              <MenuItem key={notification.id}>
+                                                <a href="#">
+                                                  <div className="title">{notification.subject}</div>
+                                                  <div className="description">{notification.message}</div>
+                                                </a>
+                                              </MenuItem>
+                                            )
+                                          )}
                                     </Menu>
                               </li>
                             </ul>

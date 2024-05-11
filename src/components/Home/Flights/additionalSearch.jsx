@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
 import AdditionSelect from './additionalSelect';
 import $ from 'jquery';
+import * as apiService from "../../../services";
 
 
 function FlightSearchForm() {
@@ -36,6 +37,33 @@ function FlightSearchForm() {
       $('#selectSuppliers').slideToggle();
   });
     }, []);
+
+
+   const [homeselectSuppliers, setselectSuppliers] = useState([]);
+
+    const fetchData = async (e) => {
+    const data = await apiService.homeScreenShowHide({ value: 1 });
+    console.log(data.suppliers);
+    setselectSuppliers(data.suppliers);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+
+  const checkboxes = homeselectSuppliers.map(supplier => (
+  <span key={supplier.id}>
+    <input
+      className="form-check-input"
+      type="checkbox"
+      id={supplier.code}
+      value={supplier.code}
+    />
+    <label className="form-check-label" htmlFor={supplier.code}>
+      {supplier.text}
+    </label>
+  </span>
+));
 
 
   return (
@@ -102,76 +130,8 @@ function FlightSearchForm() {
 
               <div id="selectSuppliers">
                 <p className='py-2'>By Selecting One Or More (Max 10) Payment Types, Prices On Wego Will Include Applicable Minimum Payment Fee. Please Note That Not All Providers Support All Payment Types.</p>
-                <span>
-                  <input 
-                    className="form-check-input" 
-                    type="checkbox" 
-                    id="MastercardCredit" 
-                    value={MastercardCredit} 
-                  />
-                  <label className="form-check-label" htmlFor="MastercardCredit">
-                    MasterCard Credit
-                  </label>
-                </span>
-                <span>
-                  <input 
-                    className="form-check-input" 
-                    type="checkbox" 
-                    id="VisaCredit" 
-                    value={VisaCredit} 
-                  />
-                  <label className="form-check-label" htmlFor="VisaCredit">
-                    Visa Credit
-                  </label>
-                </span>
-
-                <span>
-                  <input 
-                    className="form-check-input" 
-                    type="checkbox" 
-                    id="VisaDebit" 
-                    value={VisaDebit} 
-                  />
-                  <label className="form-check-label" htmlFor="VisaDebit">
-                    Visa Debit
-                  </label>
-                </span>
-
-                <span>
-                  <input 
-                    className="form-check-input" 
-                    type="checkbox" 
-                    id="NetBanking" 
-                    value={NetBanking} 
-                  />
-                  <label className="form-check-label" htmlFor="NetBanking">
-                    Net Banking
-                  </label>
-                </span>
-
-                <span>
-                  <input 
-                    className="form-check-input" 
-                    type="checkbox" 
-                    id="UPI" 
-                    value={UPI} 
-                  />
-                  <label className="form-check-label" htmlFor="UPI">
-                    UPI
-                  </label>
-                </span>
-
-                <span>
-                  <input 
-                    className="form-check-input" 
-                    type="checkbox" 
-                    id="BankTransfer" 
-                    value={BankTransfer} 
-                  />
-                  <label className="form-check-label" htmlFor="BankTransfer">
-                    Bank Transfer
-                  </label>
-                </span>
+                
+                 {checkboxes}
               </div>
 
             </div>

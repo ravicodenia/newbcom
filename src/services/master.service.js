@@ -30,6 +30,56 @@ export const homeScreenShowHide = async ({ value }) => {
   }
 };
 
+
+export const GetBankDetailsByAgentId = async ({ value }) => {
+  try {
+    const url = `https://bcom-services.pierofcloudtech.com/api/Home/GetBankDetailsByAgentId?agentId=${value}`;
+    
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json(); // Get response text directly
+    return data; // Return HTML response
+  } catch (error) {
+    console.error('Error:', error);
+    return null; // Or handle the error appropriately
+  }
+};
+
+
+
+export const GetSupportDetailsByAgentId = async ({ value }) => {
+  try {
+    const url = `https://bcom-services.pierofcloudtech.com/api/Home/GetSupportDetailsByAgentId?agentId=${value}`;
+    
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json(); // Get response text directly
+    return data; // Return HTML response
+  } catch (error) {
+    console.error('Error:', error);
+    return null; // Or handle the error appropriately
+  }
+};
+
+
 export const homeBooking = async ({ value }) => {
   try {
     const url =  `https://bcom-services.pierofcloudtech.com/api/Home/GetLatestTransactionsByAgentId?agentId=${value}`;
@@ -154,6 +204,30 @@ export const resendOtp = async ({userName}) => {
 
     const response = await fetch(url, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+    return null; // Or handle the error appropriately
+  }
+};
+
+
+export const notification = async ({agentId, userId}) => {
+  try {
+    const url =  `https://bcom-services.pierofcloudtech.com/api/Home/GetNotificationsByUserId?agentId=${agentId}&userId=${userId}`;
+
+    const response = await fetch(url, {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json'
       }

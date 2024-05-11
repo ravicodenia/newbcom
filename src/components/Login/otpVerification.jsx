@@ -89,7 +89,7 @@ const OTPverification = () => {
               
                 <form onSubmit={handleSubmit}>
                   <div className="otp-field">
-                  {[...Array(5)].map((_, index) => (
+                  {[...Array(6)].map((_, index) => (
                     <input
                       key={index}
                       ref={(el) => (inputs.current[index] = el)}
