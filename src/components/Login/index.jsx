@@ -16,6 +16,8 @@ const Login = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loginApiData,SetLoginApiData] = useState([]);
+  const [userError, setUserError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
 
   
   const navigate = useNavigate();
@@ -34,6 +36,12 @@ const Login = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setLoginData({ ...logindata, [name]: value });  
+    if(logindata.user.length > 0 ){
+      setUserError('');
+    }
+    if(logindata.password.length > 0 ){
+      setPasswordError('');
+    }
   };
 
 
@@ -75,14 +83,54 @@ const Login = () => {
       console.error('Error:', error);
   }
   };
+ 
+  // ----- form validation funciton ------
+  const validateForm = () => {
+    // Resetting previous error messages
+    setUserError('');
+    setPasswordError('');
 
-  // submit btn fucntion
+    let isValid = true;
+
+    // Checking if email is empty
+    if (logindata.user.length <= 0 ) {
+      setUserError('Please give your email address');
+      isValid = false;}
+    // }else if (!isValidEmail(logindata.user)) {
+    //   setUserError('Please provide a valid email address');
+    //   isValid = false;
+    // }
+
+    // Checking if password is empty
+    if (logindata.password.length <= 0 ) {
+      setPasswordError('Please give your password');
+      isValid = false;
+    }
+
+    return isValid;
+  };
+
+  // const isValidEmail = (email) => {
+  //   // Regular expression pattern for validating email address
+  //   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //   return emailPattern.test(email);
+  // };
+
+  // -------- submit btn fucntion ---------
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-
-    // Call fetchDataLoginAuth directly here
-    await fetchDataLoginAuth();
+    
+    // Validate the form
+    const isValidForm = validateForm();
+  
+    if (isValidForm) {
+      await fetchDataLoginAuth();
+      document.querySelector(".nav-align-top").style.display = "none";
+      document.querySelector(".otpverification").style.display = "block";
+      console.log("form if");
+    } else {
+      console.log("form else");
+    }
   };
 
 
@@ -142,13 +190,14 @@ const Login = () => {
                                 name="user"
                                 onChange={handleChange}
                                 value={logindata.user}
-                                required
+                                // required
                                 placeholder="Email Address"
                               />
-                              <label htmlFor="emailAddress">Enter your email address or Login ID</label>
+                              <label htmlFor="emailAddress">Enter your email address</label>
                             </div>
+                                <span className="text-danger">{userError}</span><br /><br />
                             <div className="input-group mb-3">
-                              <div className="form-floating flex-fill">
+                              <div className="form-floating flex-fill" style={{width:'100%'}}>
                                 <div className="label-top d-flex justify-content-between">
                                   <span className="black-color">
                                     Password</span>
@@ -161,11 +210,12 @@ const Login = () => {
                                   name="password"
                                   onChange={handleChange}
                                   value={logindata.password}
-                                  required
+                                  // required
                                   placeholder="Password"
                                 />
                                 <label htmlFor="password">Enter your passowrd</label>
                               </div>
+                              <span className="text-danger">{passwordError}</span><br /><br />
 
                               <button
                                 className="btn btn-outline-secondary"

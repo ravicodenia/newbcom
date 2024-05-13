@@ -6,8 +6,9 @@ const OTPverification = () => {
   const [otp, setOtp] = useState("");
   const [email, setUseremail] = useState("");
   const [verifyApiData,setVerifyApiData] = useState([]);
-
   const [sendmsg,setsendmsg] =useState("");
+  
+  const [otpError, setOtpError] = useState("");
 
   useEffect(() => {
     setUsername(localStorage.getItem("username"));
@@ -21,6 +22,11 @@ const OTPverification = () => {
         otp: otp,
       });
       setVerifyApiData(data);
+
+      if(data.data === null){
+        setOtpError(data.error.message);
+        return;
+      }
 
       if (data.data.accessToken && data.data.refreshToken) {
         localStorage.setItem('accessToken', data.data.accessToken);
@@ -38,7 +44,15 @@ const OTPverification = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setUsername(localStorage.getItem("username"));
-   
+      // Form validation
+      if (!otp || otp.length !== 6) {
+        setOtpError("Please enter a valid OTP (6 digits)");
+        return;
+      }
+
+      setOtpError("");
+      
+    console.log("otp sent");
      fetchDataVerifyOtp();
   };
 
@@ -46,16 +60,32 @@ const OTPverification = () => {
 
   const handleInputChange = (index, e) => {
     const value = e.target.value;
+  
+    // Restrict input to only one character
     if (value.length > 1) {
       e.target.value = value.slice(0, 1);
     }
+  
+    // Move cursor to the next input box if there is a value
     if (value.length === 1 && index < inputs.current.length - 1) {
       inputs.current[index + 1].focus();
     }
-
+  
+    // Update the OTP state
     const updatedOtp = inputs.current.map(input => input.value).join('');
     setOtp(updatedOtp);
+    setOtpError("");
   }
+  
+  const handleKeyDown = (index, e) => {
+    // If the user pressed the backspace key and the current input box is empty,
+    // move the focus to the previous input box
+    if (e.keyCode === 8 && e.target.value === "" && index > 0) {
+      e.preventDefault(); // Prevent default behavior of the backspace key
+      inputs.current[index - 1].focus(); // Move focus to the previous input box
+    }
+  }
+  
 
   const fetchDataResendOtp = async () => {
     try {
@@ -90,17 +120,21 @@ const OTPverification = () => {
                 <form onSubmit={handleSubmit}>
                   <div className="otp-field">
                   {[...Array(6)].map((_, index) => (
-                    <input
-                      key={index}
-                      ref={(el) => (inputs.current[index] = el)}
-                      id={`otpinput${index + 1}`}
-                      type="number"
-                      maxLength={1}
-                      onChange={(e) => handleInputChange(index, e)}
-                    />
+                      <input
+                        key={index}
+                        ref={(el) => (inputs.current[index] = el)}
+                        id={`otpinput${index + 1}`}
+                        type="number"
+                        maxLength={1}
+                        onChange={(e) => handleInputChange(index, e)}
+                        onKeyDown={(e) => handleKeyDown(index, e)} // Add this line
+                      />
                   ))}
+
                     <input type="number" className="d-none" />
                   </div>
+
+                  <div className="error-message text-danger my-2">{otpError}</div>
                 
 
                   <div className="mb-1 text-muted">Didn't recieve OTP code? </div>
