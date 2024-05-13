@@ -194,8 +194,9 @@ const Login = () => {
                                 placeholder="Email Address"
                               />
                               <label htmlFor="emailAddress">Enter your email address</label>
+                               <span className="text-danger">{userError}</span>
                             </div>
-                                <span className="text-danger">{userError}</span><br /><br />
+                               
                             <div className="input-group mb-3">
                               <div className="form-floating flex-fill" style={{width:'100%'}}>
                                 <div className="label-top d-flex justify-content-between">
@@ -214,8 +215,9 @@ const Login = () => {
                                   placeholder="Password"
                                 />
                                 <label htmlFor="password">Enter your passowrd</label>
+                                <span className="text-danger">{passwordError}</span>
                               </div>
-                              <span className="text-danger">{passwordError}</span><br /><br />
+                              
 
                               <button
                                 className="btn btn-outline-secondary"
