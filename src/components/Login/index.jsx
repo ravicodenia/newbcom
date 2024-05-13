@@ -191,9 +191,9 @@ const Login = () => {
                                 onChange={handleChange}
                                 value={logindata.user}
                                 // required
-                                placeholder="Email Address"
+                                placeholder="Enter your email address"
                               />
-                              <label htmlFor="emailAddress">Enter your email address</label>
+                              {/*<label htmlFor="emailAddress">Enter your email address</label>*/}
                                <span className="text-danger">{userError}</span>
                             </div>
                                
@@ -212,9 +212,9 @@ const Login = () => {
                                   onChange={handleChange}
                                   value={logindata.password}
                                   // required
-                                  placeholder="Password"
+                                  placeholder="Enter your passowrd"
                                 />
-                                <label htmlFor="password">Enter your passowrd</label>
+                                {/*<label htmlFor="password">Enter your passowrd</label>*/}
                                 <span className="text-danger">{passwordError}</span>
                               </div>
                               
