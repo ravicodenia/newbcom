@@ -39,6 +39,8 @@ const label = { inputProps: { 'aria-label': 'Switch demo' } };
   const [children, setChildren] = useState(0);
   const [infants, setInfants] = useState(0);
 
+
+
   const handleIncrement = (type) => {
     switch (type) {
       case 'adults':
@@ -94,13 +96,19 @@ const label = { inputProps: { 'aria-label': 'Switch demo' } };
     };
 
     useEffect(() => {
+        if(!localStorage.getItem("accessToken")){
+          window.location.href = '/login';
+        }
+    })
+
+    useEffect(() => {
         // jQuery code to handle the click event
         $('.selectflightpax').click(function() {
           $(this).next('.travelersFlight').slideToggle();
       });
 
       
-      
+       
           $(".additional_flight_search_link").click(function(){
             $('#div_additional_flight_search').toggle();
           });
@@ -262,7 +270,7 @@ const label = { inputProps: { 'aria-label': 'Switch demo' } };
                                 </div>
                               </div>
                             </div>
-                        </div>
+                                </div>
 
                         <div className="col-lg-3" id="div_calendar_oneway_return">
                           <div className="row">
