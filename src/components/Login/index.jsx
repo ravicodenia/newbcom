@@ -79,7 +79,7 @@ const Login = () => {
   // submit btn fucntion
   const handleSubmit = async (e) => {
     e.preventDefault();
-    document.querySelector(".otpverification").style.display = "block";
+
 
     // Call fetchDataLoginAuth directly here
     await fetchDataLoginAuth();
