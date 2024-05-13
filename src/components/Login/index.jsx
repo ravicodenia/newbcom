@@ -185,7 +185,8 @@ const Login = () => {
                               </div>
                               <input
                                 id="emailAddress"
-                                className="form-control"
+                                
+                                className={`form-control ${userError ? 'is-invalid' : ''}`}
                                 type="text"
                                 name="user"
                                 onChange={handleChange}
@@ -206,7 +207,7 @@ const Login = () => {
                                 </div>
                                 <input
                                   id="password"
-                                  className="form-control"
+                                  className={`form-control ${passwordError ? 'is-invalid' : ''}`}
                                   type={showPassword ? "text" : "password"}
                                   name="password"
                                   onChange={handleChange}
