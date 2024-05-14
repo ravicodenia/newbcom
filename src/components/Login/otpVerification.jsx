@@ -11,7 +11,7 @@ const OTPverification = () => {
   
   const [otpError, setOtpError] = useState("");
 
-  useEffect(() => {
+  useEffect(() => { 
     setUsername(localStorage.getItem("username"));
     setUseremail(localStorage.getItem("email"));
   },[])

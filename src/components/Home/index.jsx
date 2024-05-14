@@ -5,7 +5,7 @@ import RecentSearches from "./Flights/recentSearches";
 import BannerSection from "./Flights/bannersSection";
 import LatestBooking from "./Flights/latestBooking";
 import * as apiService from "../../services";
-
+ 
 const HomePage = () => {
   const [homeScreenproducts, setHomeScreenproducts] = useState([]);
 

@@ -14,7 +14,7 @@ ReactDOM.render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<App />
-			<ToastContainer />
+			<ToastContainer /> 
 		</BrowserRouter>
 	</React.StrictMode>,
 	document.getElementById("root")

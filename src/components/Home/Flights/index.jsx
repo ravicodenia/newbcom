@@ -15,7 +15,7 @@ import LatestBooking from "../Flights/latestBooking";
 import {RangeDatePicker} from "react-google-flight-datepicker";
 import "react-google-flight-datepicker/dist/main.css";
 
-
+ 
 const Flights = () => {
   const Android12Switch = styled(Switch)(({ theme }) => ({
     padding: 8,
