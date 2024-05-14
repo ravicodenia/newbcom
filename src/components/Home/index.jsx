@@ -85,9 +85,7 @@ const HomePage = () => {
                   <div className="tab-content">
                     <div className="tab-pane fade show active" id="flights" role="tabpanel">
                      <Flights/>
-                      <RecentSearches/> 
-                      <BannerSection/>
-                      <LatestBooking/>
+                     
                     </div>
                     <div className="tab-pane fade" id="hotels" role="tabpanel">
                      Hotels

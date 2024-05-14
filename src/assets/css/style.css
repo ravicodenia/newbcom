@@ -376,6 +376,11 @@ li.nav-item .nav-link  {
     bottom: 0;
 }
 
+
+input#password {
+    background-position: right calc(.375em + 2.45rem) center;
+}
+
 .admin-login-page .form-floating {
     width: 100%!important;
 }
@@ -964,7 +969,7 @@ span.srchsml svg {
  .flightheadertbl tr td {
     font-size: 11px;
     color: #2f2f2f;
-    padding-bottom: 8px;
+    padding-bottom: 15px;
     position: relative;
     text-align: left!important;
 }
@@ -1668,10 +1673,15 @@ a.text-primary{
 .filter-section button.bg-primary {
     background-color: #f2aa3b!important;
     border-radius: 0;
-    color: #Fff;
+    color: #Fff!important;
     /* box-shadow: none; */
     min-height: 10px!important;
     padding: 7px!important;
+    min-width: 82px;
+}
+
+.form-check-input:focus{
+    box-shadow: none!important;
 }
 
 .chkFlightTime .chkpic {
@@ -1731,6 +1741,24 @@ a.text-primary{
 }
 
 
+.form-control:focus {
+    background-color: #fff;
+     border-color: #f6f6f6 !important;
+     /* box-shadow: 0 0 0 .25rem rgb(246 246 246) !important; */
+     color: #212529;
+     outline: 0;
+ }
+ 
+ .form-check-input:focus {
+     border-color: #ced4db !important;
+     /* box-shadow: 0 0 0 .25rem rgb(206 212 219) !important; */
+     outline: 0;
+ }
+
+ .form-switch .form-check-input:focus{
+        background-image: url("data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%27-4 -4 8 8%27%3e%3ccircle r=%273%27 fill=%27rgba%280, 0, 0, 0.25%29%27/%3e%3c/svg%3e")!important;
+}
+
 .filter-section .Mui-selected {
     background: #0056b3!important;
     color: #fff!important;
@@ -1742,6 +1770,117 @@ a.text-primary{
 
 span.MuiTabs-indicator {
     display: none;
+}
+
+.search-result .MuiAccordionSummary-content h6 {
+    font-size: 0.9rem;
+    color: #212529;
+    font-weight: 600;
+}
+
+/* .material-calendar {
+    position: absolute;
+    top: 35px;
+    opacity:1;
+    height: 72%;
+    width: 90%;
+    left: 24px;
+} */
+
+.material-calendar span.srchsml, .material-calendar .MuiTextField-root {
+    background: #ededed;
+    min-width: 113spx;
+    margin: -4px 0;
+    font-size: 13px;
+    text-align: center;
+}
+
+.material-calendar .MuiStack-root {
+    padding-top: 0!important;
+    overflow-y: hidden;
+}
+
+.material-calendar .MuiMultiSectionDigitalClock-root {
+    display: none!important;
+}
+
+.material-calendar .MuiTextField-root fieldset, .material-calendar .MuiTextField-root input {
+    border: 0!important;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.material-calendar p.MuiTypography-root {
+    opacity: 0;
+    margin: 0;
+}
+
+.material-calendar span.srchsml {
+    min-width: 114px!important;
+}
+
+.material-calendar .MuiTextField-root input {
+    min-height: 50px;
+}
+
+.material-calendar span.srchsml {
+    min-width: 116px!important;
+    text-align: left;
+    padding-left: 13px;
+    padding-top: 5px;
+}
+
+.MuiMultiSectionDigitalClock-root {
+    display: none!important;
+}
+
+.react-google-flight-datepicker .change-date-group {
+    display: none!important;
+}
+
+.react-google-flight-datepicker .date-picker {
+    padding: 0!important;
+    margin-top: 4px!important;
+}
+
+.react-google-flight-datepicker .date {
+    padding: 0!important;
+    padding-left: 6px!important;
+}
+
+.react-google-flight-datepicker .date:focus::after, .react-google-flight-datepicker .date.is-focus::after {
+    border: 0!important;
+    background: transparent!important;
+}
+
+.react-google-flight-datepicker .date {
+    padding: 0!important;
+    padding-left: 6px!important;
+    background: #ededed!important;
+    margin-right: 6px;
+    border-radius: 0!important;
+    min-width: 111px;
+    border: 0!important;
+    margin-left: 0px;
+    min-width: 116px;
+    min-height: 60px;
+}
+
+.react-google-flight-datepicker .dialog-date-picker{
+    left: -100%!important;
+}
+
+.react-google-flight-datepicker .date-picker-input{
+    border: 0!important;
+}
+
+.react-google-flight-datepicker .date:first-child::before{
+    opacity: 0;
+}
+
+.react-google-flight-datepicker .icon-calendar {
+    fill: #1c1c1d!important;
+    margin-right: 6px!important;;
 }
 
 @media(max-width:990px){
@@ -2220,22 +2359,4 @@ div#banding {
     -webkit-transform: translate( -50%, 0);
     transform: translate( -50%, 0);
     z-index: 999;
-}
-
-.form-control:focus {
-   background-color: #fff;
-    border-color: #f6f6f6 !important;
-    box-shadow: 0 0 0 .25rem rgb(246 246 246) !important;
-    color: #212529;
-    outline: 0;
-}
-
-.form-check-input:focus {
-    border-color: #ced4db !important;
-    box-shadow: 0 0 0 .25rem rgb(206 212 219) !important;
-    outline: 0;
-}
-
-input#password {
-    background-position: right calc(.375em + 2.45rem) center;
 }
