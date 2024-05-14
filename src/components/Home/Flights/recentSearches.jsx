@@ -53,8 +53,16 @@ function RecentSearch() {
   const [slidesData, setSlidesData] = useState([]);
 
   useEffect(() => {
+  const accessToken = localStorage.getItem("accessToken");
     // Fetch data from API
-    fetch('https://bcom-services.pierofcloudtech.com/api/Home/GetRecentSearchesByAgentId?agentId=1')
+    fetch('https://bcom-services.pierofcloudtech.com/api/Home/GetRecentSearchesByAgentId?agentId=1',
+    {
+      headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${accessToken}`
+    }
+  }
+    )
       .then(response => response.json())
       .then(data => {
         // Transform API response to the desired format
