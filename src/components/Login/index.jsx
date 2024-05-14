@@ -52,7 +52,7 @@ const Login = () => {
     try {
       if (logindata.user.length <= 0  || logindata.password.length <= 0) {
         setError('Username or password cannot be empty');
-        return; // Exit the function early if either field is empty
+        return false; // Exit the function early if either field is empty
       } else {
         setError("")
         const data = await apiService.loginAuth({
@@ -63,7 +63,13 @@ const Login = () => {
         // console.log(data); // Example: printing data to console
 
         console.log(data.error.message)
-        if (data.error.message === "OTP sent successfully to the email") {
+
+        if(data.data == null){
+          setError('Invalid username and passowrd');
+          return false;
+
+        }
+        else if (data.error.message === "OTP sent successfully to the email") {
           localStorage.setItem("userid",data.data.userId);
           localStorage.setItem("username",data.data.username);
           localStorage.setItem("email",data.data.email);
@@ -125,8 +131,8 @@ const Login = () => {
   
     if (isValidForm) {
       await fetchDataLoginAuth();
-      document.querySelector(".nav-align-top").style.display = "none";
-      document.querySelector(".otpverification").style.display = "block";
+      // document.querySelector(".nav-align-top").style.display = "none";
+      // document.querySelector(".otpverification").style.display = "block";
       console.log("form if");
     } else {
       console.log("form else");
@@ -178,6 +184,7 @@ const Login = () => {
                       <div className="admin-login-page w-100">
                         <div className="card-body">
                           <h4 className="pb-2 text-center">Welcome back</h4>
+                           <span className="text-danger">{error}</span>
                           <form onSubmit={handleSubmit}>
                             <div className="form-floating mb-3">
                               <div className="label-top black-color">
@@ -216,18 +223,19 @@ const Login = () => {
                                   placeholder="Enter your passowrd"
                                 />
                                 {/*<label htmlFor="password">Enter your passowrd</label>*/}
-                                <span className="text-danger">{passwordError}</span>
-                              </div>
-                              
-
-                              <button
+                                <button
                                 className="btn btn-outline-secondary"
                                 type="button"
                                 onClick={handleTogglePasswordVisibility}
                               >
                                 <Icon icon={showPassword ? "oi:eye" : "oi:eye"} />
                               </button>
+                              </div>
+                              <span className="text-danger">{passwordError}</span>
                             </div>
+
+                             
+                            
                             <div className="form-check form-switch d-flex gap-2">
                               <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
                               <span>Remember Login ID</span>

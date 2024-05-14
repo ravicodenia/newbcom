@@ -373,6 +373,7 @@ li.nav-item .nav-link  {
     position: absolute;
     right: 0;
     z-index: 999;
+    bottom: 0;
 }
 
 .admin-login-page .form-floating {
@@ -2233,4 +2234,8 @@ div#banding {
     border-color: #ced4db !important;
     box-shadow: 0 0 0 .25rem rgb(206 212 219) !important;
     outline: 0;
+}
+
+input#password {
+    background-position: right calc(.375em + 2.45rem) center;
 }
