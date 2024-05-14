@@ -7,17 +7,21 @@ import { API_BASE_URL } from '../../config/serverApiConfig';
 import OTPverification from "./otpVerification";
 import Footer from "../footer/index";
 import * as apiService from "../../services";
+import Swal from 'sweetalert2'
+import { toast } from 'react-toastify';
 
- 
+
 
 
 const Login = () => {
+  const Swal = require('sweetalert2')
   const [logindata, setLoginData] = useState({ user: "", password: "" });
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loginApiData,SetLoginApiData] = useState([]);
   const [userError, setUserError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+ 
 
   
   const navigate = useNavigate();
@@ -65,7 +69,8 @@ const Login = () => {
         console.log(data.error.message)
 
         if(data.data == null){
-          setError('Invalid username and passowrd');
+          setError(' ');
+          toast('Invalid username or passowrd')
           return false;
 
         }
@@ -100,7 +105,8 @@ const Login = () => {
 
     // Checking if email is empty
     if (logindata.user.length <= 0 ) {
-      setUserError('Please give your email address');
+      setUserError(' ');
+      toast('Please give your email address');
       isValid = false;}
     // }else if (!isValidEmail(logindata.user)) {
     //   setUserError('Please provide a valid email address');
@@ -109,7 +115,8 @@ const Login = () => {
 
     // Checking if password is empty
     if (logindata.password.length <= 0 ) {
-      setPasswordError('Please give your password');
+      setPasswordError(' ');
+      toast('Please give your password');
       isValid = false;
     }
 

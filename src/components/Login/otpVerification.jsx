@@ -1,5 +1,6 @@
 import { useEffect, useState,useRef } from "react";
 import * as apiService from "../../services";
+import { toast } from 'react-toastify';
 
 const OTPverification = () => {
   const [username, setUsername] = useState("");
@@ -24,7 +25,8 @@ const OTPverification = () => {
       setVerifyApiData(data);
 
       if(data.data === null){
-        setOtpError(data.error.message);
+        // setOtpError(data.error.message);
+        toast(data.error.message);
         return;
       }
 
@@ -46,7 +48,8 @@ const OTPverification = () => {
     setUsername(localStorage.getItem("username"));
       // Form validation
       if (!otp || otp.length !== 6) {
-        setOtpError("Please enter a valid OTP (6 digits)");
+        // setOtpError("");
+        toast("Please enter a valid OTP (6 digits)")
         return;
       }
 
